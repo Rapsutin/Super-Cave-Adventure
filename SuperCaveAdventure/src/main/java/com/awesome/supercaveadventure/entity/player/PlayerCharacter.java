@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.awesome.supercaveadventure.entity.player;
 
 import com.awesome.supercaveadventure.entity.abstracts.Entity;
@@ -29,6 +25,7 @@ public class PlayerCharacter extends Entity{
         speed = 4;
     }
     
+    //THIS IS NOT FINAL
     public void move(double delta, PlayerKeyListener keyListener) {
         if(keyListener.isDown()) {
             y += delta * speed;

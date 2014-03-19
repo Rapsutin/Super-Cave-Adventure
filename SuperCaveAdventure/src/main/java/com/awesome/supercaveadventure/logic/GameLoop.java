@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.awesome.supercaveadventure.logic;
 
 import com.awesome.supercaveadventure.entity.abstracts.Entity;
@@ -10,17 +7,13 @@ import com.awesome.supercaveadventure.graphics.DrawPanel;
 import com.awesome.supercaveadventure.graphics.GameFrame;
 import com.awesome.supercaveadventure.graphics.interfaces.Drawable;
 import com.awesome.supercaveadventure.rooms.Room;
-import com.awesome.supercaveadventure.rooms.TestRoom;
+import com.awesome.supercaveadventure.rooms.StartRoom;
 import java.util.ArrayList;
 import javax.swing.SwingUtilities;
 
 
 
 
-/**
- *
- * @author Juho
- */
 public class GameLoop {
     
     private GameFrame gameFrame;
@@ -36,8 +29,8 @@ public class GameLoop {
     public GameLoop() {
         
         playerCharacter = new PlayerCharacter(0, 0);
-        changeCurrentRoom(new TestRoom());
         createGameUI();
+        changeCurrentRoom(new StartRoom());
     }
     
     public void changeCurrentRoom(Room newRoom) {
@@ -49,7 +42,7 @@ public class GameLoop {
     }
     
     private void createGameUI() {
-        ArrayList<Drawable> drawables = generateDrawables();
+        ArrayList<Drawable> drawables = new ArrayList<>();
         this.drawPanel = new DrawPanel(drawables);
         this.gameFrame = new GameFrame(drawPanel);
         SwingUtilities.invokeLater(gameFrame);
@@ -59,12 +52,12 @@ public class GameLoop {
      * Updates the list of things to draw.
      * @return 
      */
-    private ArrayList<Drawable> generateDrawables() {
+    public void updateDrawables() {
         ArrayList<Drawable> drawables = new ArrayList<>(entities.size());
         for (Entity e : entities) {
             drawables.add(e);
         }
-        return drawables;
+        drawPanel.setDrawables(drawables);
     }
     
     /**
@@ -89,14 +82,14 @@ public class GameLoop {
             double delta = updateLength / (double) OPTIMAL_TIME;
             
             updateGame(delta);
-            generateDrawables();
+            updateDrawables();
             drawPanel.repaint();
             wait(lastLoopTime, OPTIMAL_TIME);
                         
         }
     }
     
-    public void updateGame(double delta) {
+    private void updateGame(double delta) {
         PlayerKeyListener playerKeyListener = gameFrame.getPlayerKeyListener();
         playerCharacter.move(delta, playerKeyListener);
     }
@@ -106,6 +99,28 @@ public class GameLoop {
             Thread.sleep( (lastLoopTime - System.nanoTime() + OPTIMAL_TIME)/1000000);
         } catch (Exception e) {}
     }
+
+    public GameFrame getGameFrame() {
+        return gameFrame;
+    }
+
+    public DrawPanel getDrawPanel() {
+        return drawPanel;
+    }
+
+    public Room getCurrentRoom() {
+        return currentRoom;
+    }
+
+    public PlayerCharacter getPlayerCharacter() {
+        return playerCharacter;
+    }
+
+    public ArrayList<Entity> getEntities() {
+        return entities;
+    }
+    
+    
 
     
 

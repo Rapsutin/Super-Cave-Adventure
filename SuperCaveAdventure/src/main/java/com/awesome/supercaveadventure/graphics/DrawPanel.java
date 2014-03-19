@@ -1,14 +1,10 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.awesome.supercaveadventure.graphics;
 
 import com.awesome.supercaveadventure.graphics.interfaces.Drawable;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
-import java.util.List;
 import javax.swing.JPanel;
 
 
@@ -41,5 +37,11 @@ public class DrawPanel extends JPanel{
     public ArrayList<Drawable> getDrawables() {
         return drawables;
     }
+
+    public void setDrawables(ArrayList<Drawable> drawables) {
+        this.drawables = drawables;
+    }
+    
+    
     
 }

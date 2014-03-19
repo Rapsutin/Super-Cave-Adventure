@@ -1,11 +1,8 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-package com.awesome.supercaveadventure.rooms;
+
+package testobjects;
 
 import com.awesome.supercaveadventure.entity.abstracts.Entity;
-import com.awesome.supercaveadventure.entity.player.PlayerCharacter;
+import com.awesome.supercaveadventure.rooms.Room;
 import java.awt.Graphics;
 import java.util.ArrayList;
 
@@ -20,11 +17,14 @@ public class TestRoom extends Room{
 
     public TestRoom() {
         entities = new ArrayList<>();
-        entities.add(new PlayerCharacter(200, 200));
         playerStartXPos = 40;
         playerStartYPos = 40;
     }
-    
+
+    public void addEntity(Entity entity) {
+        entities.add(entity);
+    }
+
     @Override
     public void draw(Graphics graphics) {
     }
@@ -43,5 +43,4 @@ public class TestRoom extends Room{
     public int getPlayerStartYPos() {
         return playerStartYPos;
     }
-    
 }
