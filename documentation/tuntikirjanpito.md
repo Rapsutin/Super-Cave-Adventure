@@ -16,3 +16,7 @@ lähellä valmista. Tarkoituksena on, että pystyn
 lisäämään peliin uusia huoneita, vihollisia ym. mahdollisimman
 helposti. (4h) 
 
+19.3.2014
+Keskityin lisäämään testejä, koska löytyi eilisen jäljiltä viimeinkin järkevää testattavaa. Korjasin pari bugia.
+ Alan mahdollisesti käyttämään tästä eteenpäin TDD:tä. (3h)
+
