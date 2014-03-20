@@ -1,5 +1,5 @@
 
-package testobjects;
+package com.awesome.testobjects;
 
 import com.awesome.supercaveadventure.entity.abstracts.Entity;
 import com.awesome.supercaveadventure.rooms.Room;

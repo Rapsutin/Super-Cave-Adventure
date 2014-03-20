@@ -1,5 +1,5 @@
 
-package logic;
+package com.awesome.logic;
 
 import com.awesome.supercaveadventure.entity.abstracts.Entity;
 import com.awesome.supercaveadventure.entity.player.PlayerCharacter;
@@ -12,7 +12,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import testobjects.TestRoom;
+import com.awesome.testobjects.TestRoom;
 
 /**
  *
@@ -40,14 +40,14 @@ public class GameLoopTest {
     
     
     @Test
-    public void playerCharacter_should_be_in_entities_when_starting() {
+    public void playerCharacterShouldBeInEntitiesWhenStarting() {
         ArrayList<Entity> entities = gameLoop.getEntities();
         PlayerCharacter playerCharacter = gameLoop.getPlayerCharacter();
         assertTrue(entities.contains(playerCharacter));
     }
     
     @Test
-    public void playerCharacter_should_be_transported_while_changing_rooms() {
+    public void playerCharacterShouldBeTransportedWhileChangingRooms() {
         ArrayList<Entity> entities = gameLoop.getEntities();
         PlayerCharacter playerCharacter = gameLoop.getPlayerCharacter();
         gameLoop.changeCurrentRoom(testRoom);
@@ -55,28 +55,28 @@ public class GameLoopTest {
     }
     
     @Test
-    public void changeCurrentRoom_should_change_the_current_room() {
+    public void changeCurrentRoomShouldChangeTheCurrentRoom() {
         Room previous = gameLoop.getCurrentRoom();
         gameLoop.changeCurrentRoom(new TestRoom());
         assertNotSame(previous, gameLoop.getCurrentRoom());
     }
     
     @Test
-    public void one_added_entity_should_be_in_drawables() {
-        n_added_entities_should_be_in_drawables(1);
+    public void oneAddedEntityShouldBeInDrawables() {
+        nAddedEntitiesShouldBeInDrawables(1);
     }
     
     @Test
-    public void two_added_entities_should_be_in_drawables() {
-        n_added_entities_should_be_in_drawables(2);
+    public void twoAddedEntitiesShouldBeInDrawables() {
+        nAddedEntitiesShouldBeInDrawables(2);
     }
     
     @Test
-    public void ten_added_entities_should_be_in_drawables() {
-        n_added_entities_should_be_in_drawables(10);
+    public void tenAddedEntitiesShouldBeInDrawables() {
+        nAddedEntitiesShouldBeInDrawables(10);
     }
     
-    public void n_added_entities_should_be_in_drawables(int numberOfAddedEntites) {
+    public void nAddedEntitiesShouldBeInDrawables(int numberOfAddedEntites) {
         addDrawablesIntoTestRoom(numberOfAddedEntites);
         
         DrawPanel drawPanel = gameLoop.getDrawPanel();
@@ -95,21 +95,21 @@ public class GameLoopTest {
     }
     
     @Test
-    public void removing_1_entity_removes_1_drawable() {
-        removing_n_entities_removes_n_drawables(1);
+    public void removing1EntityRemoves1Drawable() {
+        removing_N_entitiesRemoves_N_Drawables(1);
     }
     
     @Test
-    public void removing_2_entities_removes_2_drawables() {
-        removing_n_entities_removes_n_drawables(2);
+    public void removing2EntitiesRemoves2Drawables() {
+        removing_N_entitiesRemoves_N_Drawables(2);
     }
     
     @Test
-    public void removing_all_entities_removes_all_drawables() {
-        removing_n_entities_removes_n_drawables(100);
+    public void removingAllEntitiesRemovesAllDrawables() {
+        removing_N_entitiesRemoves_N_Drawables(100);
     }
     
-    public void removing_n_entities_removes_n_drawables(int toBeRemoved) {
+    public void removing_N_entitiesRemoves_N_Drawables(int toBeRemoved) {
         int startingEntities = 100;
         
         addDrawablesIntoTestRoom(startingEntities);
