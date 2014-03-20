@@ -1,67 +1,40 @@
-
-package com.awesome.logic;
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.awesome.graphics;
 
 import com.awesome.supercaveadventure.entity.abstracts.Entity;
 import com.awesome.supercaveadventure.entity.player.PlayerCharacter;
+import com.awesome.supercaveadventure.graphics.DrawManager;
 import com.awesome.supercaveadventure.graphics.DrawPanel;
 import com.awesome.supercaveadventure.graphics.interfaces.Drawable;
-import com.awesome.supercaveadventure.logic.GameLoop;
-import com.awesome.supercaveadventure.rooms.Room;
+import com.awesome.supercaveadventure.logic.GameLogic;
+import com.awesome.testobjects.TestRoom;
 import java.util.ArrayList;
-import org.junit.After;
 import org.junit.Before;
+
 import org.junit.Test;
 import static org.junit.Assert.*;
-import com.awesome.testobjects.TestRoom;
 
 /**
  *
  * @author Juho
  */
-public class GameLoopTest {
+public class DrawManagerTest {
     
-    private GameLoop gameLoop;
+    private DrawManager drawManager; 
+    private GameLogic gameLogic;
     private TestRoom testRoom;
-    
-    public GameLoopTest() {
-    }
-    
     
     @Before
     public void setUp() {
-        gameLoop = new GameLoop();
+        drawManager = new DrawManager();
+        gameLogic = new GameLogic();
         testRoom = new TestRoom();
     }
     
-    @After
-    public void tearDown() {
-    }
-    
-    
-    
-    @Test
-    public void playerCharacterShouldBeInEntitiesWhenStarting() {
-        ArrayList<Entity> entities = gameLoop.getEntities();
-        PlayerCharacter playerCharacter = gameLoop.getPlayerCharacter();
-        assertTrue(entities.contains(playerCharacter));
-    }
-    
-    @Test
-    public void playerCharacterShouldBeTransportedWhileChangingRooms() {
-        ArrayList<Entity> entities = gameLoop.getEntities();
-        PlayerCharacter playerCharacter = gameLoop.getPlayerCharacter();
-        gameLoop.changeCurrentRoom(testRoom);
-        assertTrue(entities.contains(playerCharacter));
-    }
-    
-    @Test
-    public void changeCurrentRoomShouldChangeTheCurrentRoom() {
-        Room previous = gameLoop.getCurrentRoom();
-        gameLoop.changeCurrentRoom(new TestRoom());
-        assertNotSame(previous, gameLoop.getCurrentRoom());
-    }
-    
-    @Test
+     @Test
     public void oneAddedEntityShouldBeInDrawables() {
         nAddedEntitiesShouldBeInDrawables(1);
     }
@@ -79,7 +52,7 @@ public class GameLoopTest {
     public void nAddedEntitiesShouldBeInDrawables(int numberOfAddedEntites) {
         addDrawablesIntoTestRoom(numberOfAddedEntites);
         
-        DrawPanel drawPanel = gameLoop.getDrawPanel();
+        DrawPanel drawPanel = drawManager.getDrawPanel();
         ArrayList<Drawable> drawables = drawPanel.getDrawables();
         
         assertEquals(numberOfAddedEntites + 1, drawables.size());
@@ -90,8 +63,8 @@ public class GameLoopTest {
         for (int i = 0; i < numberOfDrawables; i++) {
             testRoom.addEntity(new PlayerCharacter(400, 100));
         }
-        gameLoop.changeCurrentRoom(testRoom);
-        gameLoop.updateDrawables();
+        gameLogic.changeCurrentRoom(testRoom);
+        drawManager.updateDrawables(gameLogic.getEntities());
     }
     
     @Test
@@ -113,18 +86,18 @@ public class GameLoopTest {
         int startingEntities = 100;
         
         addDrawablesIntoTestRoom(startingEntities);
-        ArrayList<Entity> entities = gameLoop.getEntities();
+        ArrayList<Entity> entities = gameLogic.getEntities();
         
         for (int i = 0; i < toBeRemoved; i++) {
-            entities.remove(startingEntities-i-1);
+            int lastEntityIndexInList = entities.size() - 1;
+            Entity lastEntityInList = entities.get(lastEntityIndexInList);
+            gameLogic.removeEntity(lastEntityInList);
         }
-        gameLoop.updateDrawables();
+        drawManager.updateDrawables(entities);
         
-        DrawPanel drawPanel = gameLoop.getDrawPanel();
+        DrawPanel drawPanel = drawManager.getDrawPanel();
         ArrayList<Drawable> drawables = drawPanel.getDrawables();
         
         assertEquals(startingEntities + 1 - toBeRemoved, drawables.size());
     }
-    
-    
 }
