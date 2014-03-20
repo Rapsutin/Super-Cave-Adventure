@@ -27,7 +27,6 @@ public class DrawManager {
 
     /**
      * Updates the list of things to draw.
-     * @return
      */
     public void updateDrawables(ArrayList<Entity> entities) {
         drawables = new ArrayList<>(entities.size());

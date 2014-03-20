@@ -1,5 +1,5 @@
 
-package com.awesome.supercaveadventure.logic;
+package com.awesome.userinput;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -22,7 +22,6 @@ public class PlayerKeyListener implements KeyListener{
         down = false;
         up = false;
     }
-    
 
     @Override
     public void keyPressed(KeyEvent e) {

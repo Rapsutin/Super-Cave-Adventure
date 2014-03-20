@@ -2,7 +2,7 @@ package com.awesome.supercaveadventure.entity.player;
 
 import com.awesome.supercaveadventure.entity.abstracts.Entity;
 import com.awesome.supercaveadventure.graphics.enums.DrawDepth;
-import com.awesome.supercaveadventure.logic.PlayerKeyListener;
+import com.awesome.userinput.PlayerKeyListener;
 import java.awt.Graphics;
 
 /**
@@ -40,7 +40,8 @@ public class PlayerCharacter extends Entity{
             x += delta * speed;
         }
     }
-
+    
+    //I will most likely create a Sprite-class to handle this.
     @Override
     public void draw(Graphics graphics) {
         graphics.fillRect(x, y, width, height);

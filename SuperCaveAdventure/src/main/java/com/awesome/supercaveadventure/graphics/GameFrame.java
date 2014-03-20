@@ -2,7 +2,7 @@
 package com.awesome.supercaveadventure.graphics;
 
 
-import com.awesome.supercaveadventure.logic.PlayerKeyListener;
+import com.awesome.userinput.PlayerKeyListener;
 import java.awt.Container;
 import java.awt.Dimension;
 
