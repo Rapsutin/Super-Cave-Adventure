@@ -43,6 +43,10 @@ public class DrawManager {
     public DrawPanel getDrawPanel() {
         return drawPanel;
     }
+
+    public GameFrame getGameFrame() {
+        return gameFrame;
+    }
     
     
     

@@ -25,23 +25,14 @@ public class PlayerCharacter extends Entity{
         speed = 4;
     }
     
-    //THIS IS NOT FINAL
-    public void move(double delta, PlayerKeyListener keyListener) {
-        if(keyListener.isDown()) {
-            y += delta * speed;
-        }
-        else if(keyListener.isUp()) {
-            y -= delta * speed;
-        }
-        else if(keyListener.isLeft()) {
-            x -= delta * speed;
-        }
-        else if(keyListener.isRight()) {
-            x += delta * speed;
-        }
+    
+    public void move(double dx, double dy) {
+        x += dx;
+        y += dy;
+        
     }
     
-    //I will most likely create a Sprite-class to handle this.
+    
     @Override
     public void draw(Graphics graphics) {
         graphics.fillRect(x, y, width, height);
@@ -74,6 +65,12 @@ public class PlayerCharacter extends Entity{
     public int getWidth() {
         return width;
     }
+
+    public double getSpeed() {
+        return speed;
+    }
+    
+    
 
     @Override
     public DrawDepth getDrawDepth() {

@@ -15,8 +15,8 @@ public class GameLoop {
      * Initializes the game & the game loop. Use run() to start the game loop
      */
     public GameLoop() {
-        gameLogic = new GameLogic();
         drawManager = new DrawManager();
+        gameLogic = new GameLogic(drawManager.getGameFrame());
     }
     
     /**
@@ -52,6 +52,14 @@ public class GameLoop {
         try {
             Thread.sleep( (lastLoopTime - System.nanoTime() + OPTIMAL_TIME)/1000000);
         } catch (Exception e) {}
+    }
+
+    public DrawManager getDrawManager() {
+        return drawManager;
+    }
+
+    public GameLogic getGameLogic() {
+        return gameLogic;
     }
 
     

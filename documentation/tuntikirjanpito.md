@@ -23,4 +23,5 @@ Keskityin lisäämään testejä, koska löytyi eilisen jäljiltä viimeinkin järkevää t
 20.3.2014
 Taistelua pitin kanssa. En pysty poistamaan com.awesomea pakkausten edestä, koska muuten pit ei toimi. (1,5h)
 Refaktorointia. (1,5h)
+Lisää refaktorointia. (1h)
 

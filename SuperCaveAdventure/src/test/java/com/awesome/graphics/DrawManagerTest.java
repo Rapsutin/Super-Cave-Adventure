@@ -10,6 +10,7 @@ import com.awesome.supercaveadventure.graphics.DrawManager;
 import com.awesome.supercaveadventure.graphics.DrawPanel;
 import com.awesome.supercaveadventure.graphics.interfaces.Drawable;
 import com.awesome.supercaveadventure.logic.GameLogic;
+import com.awesome.supercaveadventure.logic.GameLoop;
 import com.awesome.testobjects.TestRoom;
 import java.util.ArrayList;
 import org.junit.Before;
@@ -29,8 +30,9 @@ public class DrawManagerTest {
     
     @Before
     public void setUp() {
-        drawManager = new DrawManager();
-        gameLogic = new GameLogic();
+        GameLoop gameLoop = new GameLoop();
+        drawManager = gameLoop.getDrawManager();
+        gameLogic = gameLoop.getGameLogic();
         testRoom = new TestRoom();
     }
     

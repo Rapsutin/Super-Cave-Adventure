@@ -7,6 +7,7 @@ package com.awesome.logic;
 import com.awesome.supercaveadventure.entity.abstracts.Entity;
 import com.awesome.supercaveadventure.entity.player.PlayerCharacter;
 import com.awesome.supercaveadventure.logic.GameLogic;
+import com.awesome.supercaveadventure.logic.GameLoop;
 import com.awesome.supercaveadventure.rooms.Room;
 import com.awesome.testobjects.TestRoom;
 import java.util.ArrayList;
@@ -21,23 +22,18 @@ import static org.junit.Assert.*;
  */
 public class GameLogicTest {
     
+    
     private GameLogic gameLogic;
     private TestRoom testRoom;
     
     @Before
     public void setUp() {
-        gameLogic = new GameLogic();
+        GameLoop gameLoop = new GameLoop();
+        gameLogic = gameLoop.getGameLogic();
         testRoom = new TestRoom();
     }
     
-    @After
-    public void tearDown() {
-    }
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+    
     
     @Test
     public void playerCharacterShouldBeInEntitiesWhenStarting() {

@@ -7,8 +7,10 @@ package com.awesome.supercaveadventure.logic;
 
 import com.awesome.supercaveadventure.entity.abstracts.Entity;
 import com.awesome.supercaveadventure.entity.player.PlayerCharacter;
+import com.awesome.supercaveadventure.graphics.GameFrame;
 import com.awesome.supercaveadventure.rooms.Room;
 import com.awesome.supercaveadventure.rooms.StartRoom;
+import com.awesome.userinput.PlayerMover;
 import java.util.ArrayList;
 
 
@@ -17,16 +19,21 @@ public class GameLogic {
     private PlayerCharacter playerCharacter;
     private Room currentRoom;
     private ArrayList<Entity> entities;
+    private PlayerMover playerMover;
 
-    public GameLogic() {
+    public GameLogic(GameFrame keyListenerLocation) {
         entities = new ArrayList<>();
+        initializeGame();
+        playerMover = new PlayerMover(playerCharacter, keyListenerLocation.getPlayerKeyListener());
+    }
+    
+    private void initializeGame() {
         playerCharacter = new PlayerCharacter(0, 0);
         changeCurrentRoom(new StartRoom());
     }
-    
 
     public void updateGame(double delta) {
-        
+        playerMover.movePlayer(delta);
     }
 
     public void changeCurrentRoom(Room newRoom) {
@@ -56,5 +63,7 @@ public class GameLogic {
     public Room getCurrentRoom() {
         return currentRoom;
     }
+
+    
 
 }
