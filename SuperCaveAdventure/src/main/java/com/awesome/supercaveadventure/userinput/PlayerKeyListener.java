@@ -1,5 +1,5 @@
 
-package com.awesome.userinput;
+package com.awesome.supercaveadventure.userinput;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;

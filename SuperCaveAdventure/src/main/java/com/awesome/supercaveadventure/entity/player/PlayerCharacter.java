@@ -2,7 +2,6 @@ package com.awesome.supercaveadventure.entity.player;
 
 import com.awesome.supercaveadventure.entity.abstracts.Entity;
 import com.awesome.supercaveadventure.graphics.enums.DrawDepth;
-import com.awesome.userinput.PlayerKeyListener;
 import java.awt.Graphics;
 
 /**
@@ -29,6 +28,11 @@ public class PlayerCharacter extends Entity{
     public void move(double dx, double dy) {
         x += dx;
         y += dy;
+        
+    }
+    
+    @Override
+    public void onOverlap(Entity collidingEntity) {
         
     }
     
@@ -76,4 +80,7 @@ public class PlayerCharacter extends Entity{
     public DrawDepth getDrawDepth() {
         return null;
     }
+
+    
+
 }

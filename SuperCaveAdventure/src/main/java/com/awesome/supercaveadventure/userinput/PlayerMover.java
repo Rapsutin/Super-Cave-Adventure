@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package com.awesome.userinput;
+package com.awesome.supercaveadventure.userinput;
 
 import com.awesome.supercaveadventure.entity.player.PlayerCharacter;
 

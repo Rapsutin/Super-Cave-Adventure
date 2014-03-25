@@ -2,6 +2,7 @@
 package com.awesome.supercaveadventure.rooms;
 
 import com.awesome.supercaveadventure.entity.abstracts.Entity;
+import com.awesome.supercaveadventure.entity.player.PlayerCharacter;
 import java.awt.Graphics;
 import java.util.ArrayList;
 

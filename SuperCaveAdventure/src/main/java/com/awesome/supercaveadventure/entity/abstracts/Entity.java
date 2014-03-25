@@ -14,6 +14,8 @@ public abstract class Entity implements Drawable{
     public abstract int getHeight();
     public abstract int getWidth();
     public abstract DrawDepth getDrawDepth();
+    public abstract void onOverlap(Entity collidingEntity);
+    
     
     
     

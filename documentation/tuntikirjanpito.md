@@ -25,3 +25,8 @@ Taistelua pitin kanssa. En pysty poistamaan com.awesomea pakkausten edestä, kosk
 Refaktorointia. (1,5h)
 Lisää refaktorointia. (1h)
 
+
+25.3.2014
+Lisäsin bounding-box -tyyppisen törmäyksentunnistuksen ja testit sille.
+(3h)
+
