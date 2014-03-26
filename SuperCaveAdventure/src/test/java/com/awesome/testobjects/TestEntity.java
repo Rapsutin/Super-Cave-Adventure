@@ -7,7 +7,7 @@ package com.awesome.testobjects;
 
 import com.awesome.supercaveadventure.entity.abstracts.Entity;
 import com.awesome.supercaveadventure.graphics.enums.DrawDepth;
-import java.awt.Graphics;
+import java.awt.Graphics2D;
 
 
 public class TestEntity extends Entity{
@@ -48,7 +48,7 @@ public class TestEntity extends Entity{
 
     @Override
     public DrawDepth getDrawDepth() {
-        return null;
+        return DrawDepth.PLAYER;
     }
 
     @Override
@@ -56,7 +56,7 @@ public class TestEntity extends Entity{
     }
 
     @Override
-    public void draw(Graphics graphics) {
+    public void draw(Graphics2D graphics) {
     }
 
 }

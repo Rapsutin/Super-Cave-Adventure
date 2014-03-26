@@ -30,3 +30,6 @@ Lisää refaktorointia. (1h)
 Lisäsin bounding-box -tyyppisen törmäyksentunnistuksen ja testit sille.
 (3h)
 
+26.3.2014
+Grafiikoita ja oven prototyyppi. (5h)
+

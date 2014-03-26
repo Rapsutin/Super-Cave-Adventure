@@ -8,8 +8,8 @@ package com.awesome.supercaveadventure.logic;
 import com.awesome.supercaveadventure.entity.abstracts.Entity;
 import com.awesome.supercaveadventure.entity.player.PlayerCharacter;
 import com.awesome.supercaveadventure.graphics.GameFrame;
-import com.awesome.supercaveadventure.rooms.Room;
-import com.awesome.supercaveadventure.rooms.StartRoom;
+import com.awesome.supercaveadventure.rooms.abstracts.Room;
+import com.awesome.supercaveadventure.rooms.Room00;
 import com.awesome.supercaveadventure.userinput.PlayerMover;
 import java.util.ArrayList;
 
@@ -29,7 +29,7 @@ public class GameLogic {
     
     private void initializeGame() {
         playerCharacter = new PlayerCharacter(0, 0);
-        changeCurrentRoom(new StartRoom());
+        changeCurrentRoom(new Room00(this));
     }
 
     public void updateGame(double delta) {
@@ -56,9 +56,6 @@ public class GameLogic {
      * @return True if they overlap, otherwise False
      */
     public boolean doEntitiesOverlap(Entity entity1, Entity entity2) {
-        
-        
-        
         if(entity2.getX() > entity1.getX() + entity1.getWidth() - 1     ||
            entity2.getY() > entity1.getY() + entity1.getHeight() - 1    ||
            entity1.getX() > entity2.getX() + entity2.getWidth() - 1     ||

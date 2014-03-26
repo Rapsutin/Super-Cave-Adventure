@@ -57,7 +57,7 @@ public class DrawManagerTest {
         DrawPanel drawPanel = drawManager.getDrawPanel();
         ArrayList<Drawable> drawables = drawPanel.getDrawables();
         
-        assertEquals(numberOfAddedEntites + 1, drawables.size());
+        assertEquals(numberOfAddedEntites + 2, drawables.size());
     }
     
 
@@ -66,7 +66,7 @@ public class DrawManagerTest {
             testRoom.addEntity(new PlayerCharacter(400, 100));
         }
         gameLogic.changeCurrentRoom(testRoom);
-        drawManager.updateDrawables(gameLogic.getEntities());
+        drawManager.updateDrawables(gameLogic.getEntities(), gameLogic.getCurrentRoom());
     }
     
     @Test
@@ -95,11 +95,11 @@ public class DrawManagerTest {
             Entity lastEntityInList = entities.get(lastEntityIndexInList);
             gameLogic.removeEntity(lastEntityInList);
         }
-        drawManager.updateDrawables(entities);
+        drawManager.updateDrawables(entities, gameLogic.getCurrentRoom());
         
         DrawPanel drawPanel = drawManager.getDrawPanel();
         ArrayList<Drawable> drawables = drawPanel.getDrawables();
         
-        assertEquals(startingEntities + 1 - toBeRemoved, drawables.size());
+        assertEquals(startingEntities + 2 - toBeRemoved, drawables.size());
     }
 }

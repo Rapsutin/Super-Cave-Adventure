@@ -41,7 +41,7 @@ public class GameLoop {
             double delta = updateLength / (double) OPTIMAL_TIME;
             
             gameLogic.updateGame(delta);
-            drawManager.updateDrawables(gameLogic.getEntities());
+            drawManager.updateDrawables(gameLogic.getEntities(), gameLogic.getCurrentRoom());
             drawManager.updateDrawPanel();
             
             wait(lastLoopTime, OPTIMAL_TIME);

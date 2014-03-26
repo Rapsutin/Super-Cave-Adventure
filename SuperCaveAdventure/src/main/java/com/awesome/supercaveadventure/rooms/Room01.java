@@ -1,33 +1,31 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
 
-package com.awesome.testobjects;
+package com.awesome.supercaveadventure.rooms;
 
 import com.awesome.supercaveadventure.entity.abstracts.Entity;
+import com.awesome.supercaveadventure.graphics.ImageLoader;
 import com.awesome.supercaveadventure.graphics.enums.DrawDepth;
 import com.awesome.supercaveadventure.rooms.abstracts.Room;
 import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
-/**
- *
- * @author Juho
- */
-public class TestRoom extends Room{
+
+public class Room01 extends Room{
+    
     private ArrayList<Entity> entities;
     private int playerStartXPos;
     private int playerStartYPos;
+    private BufferedImage ground;
 
-    public TestRoom() {
+    public Room01() {
         entities = new ArrayList<>();
-        playerStartXPos = 40;
-        playerStartYPos = 40;
-    }
-
-    public void addEntity(Entity entity) {
-        entities.add(entity);
-    }
-
-    @Override
-    public void draw(Graphics2D graphics) {
+        ground = ImageLoader.loadImage("resources/ground.png");
+        playerStartXPos = 100;
+        playerStartYPos = 180;
     }
 
     @Override
@@ -46,7 +44,13 @@ public class TestRoom extends Room{
     }
 
     @Override
+    public void draw(Graphics2D graphics) {
+        graphics.drawImage(ground, 0, 0, null);
+    }
+
+    @Override
     public DrawDepth getDrawDepth() {
         return DrawDepth.ROOM;
     }
+
 }

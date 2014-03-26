@@ -7,5 +7,24 @@ package com.awesome.supercaveadventure.graphics.enums;
  * when drawing them on top of each other.
  */
 public enum DrawDepth {
+
+    ROOM(0),
+    DOOR(70),
+    PLAYER(100);
+    
+    private final int depth;
+    
+    DrawDepth(int depth) {
+        this.depth = depth;
+    }
+
+    public int getDepth() {
+        return depth;
+    }
+    
+    
+
+    
+    
     
 }

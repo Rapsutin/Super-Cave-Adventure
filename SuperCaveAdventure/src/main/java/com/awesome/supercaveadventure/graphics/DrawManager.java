@@ -7,7 +7,9 @@ package com.awesome.supercaveadventure.graphics;
 
 import com.awesome.supercaveadventure.entity.abstracts.Entity;
 import com.awesome.supercaveadventure.graphics.interfaces.Drawable;
+import com.awesome.supercaveadventure.rooms.abstracts.Room;
 import java.util.ArrayList;
+import java.util.Collections;
 import javax.swing.SwingUtilities;
 
 
@@ -28,11 +30,13 @@ public class DrawManager {
     /**
      * Updates the list of things to draw.
      */
-    public void updateDrawables(ArrayList<Entity> entities) {
+    public void updateDrawables(ArrayList<Entity> entities, Room currentRoom) {
         drawables = new ArrayList<>(entities.size());
         for (Entity e : entities) {
             drawables.add(e);
         }
+        drawables.add(currentRoom);
+        Collections.sort(drawables, new DrawDepthComparator());
         drawPanel.setDrawables(drawables);
     }
     
