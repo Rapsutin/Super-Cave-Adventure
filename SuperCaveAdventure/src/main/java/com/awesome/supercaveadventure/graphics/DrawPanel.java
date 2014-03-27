@@ -20,7 +20,8 @@ public class DrawPanel extends JPanel{
     
     public DrawPanel(ArrayList<Drawable> drawables) {
         this.drawables = drawables;
-        super.setBackground(Color.WHITE);
+        super.setBackground(Color.darkGray);
+        
     }
 
     @Override

@@ -6,13 +6,15 @@ package com.awesome.supercaveadventure.entity.roomentities;
 
 import com.awesome.supercaveadventure.entity.abstracts.Entity;
 import com.awesome.supercaveadventure.entity.player.PlayerCharacter;
+import com.awesome.supercaveadventure.graphics.ImageLoader;
 import com.awesome.supercaveadventure.graphics.enums.DrawDepth;
 import com.awesome.supercaveadventure.logic.GameLogic;
 import com.awesome.supercaveadventure.rooms.abstracts.Room;
 import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
 
 
-public class Door extends Entity {
+public class Staircase extends Entity {
 
     private int x;
     private int y;
@@ -20,18 +22,22 @@ public class Door extends Entity {
     private int width;
     private Room nextRoom;
     private GameLogic gameLogic;
+    private BufferedImage img;
+    
 
-    public Door(int x, int y, int height, int width, Room nextRoom, GameLogic gameLogic) {
+    public Staircase(int x, int y, Room nextRoom, GameLogic gameLogic) {
         this.x = x;
         this.y = y;
-        this.height = height;
-        this.width = width;
+        this.height = 50;
+        this.width = 50;
         this.nextRoom = nextRoom;
         this.gameLogic = gameLogic;
+        img = ImageLoader.loadImage("resources/staircaseDoor.png");
     }
 
     @Override
     public void onOverlap(Entity collidingEntity) {
+        
         if(collidingEntity.getClass() == PlayerCharacter.class) {
             gameLogic.changeCurrentRoom(nextRoom);
         }
@@ -39,7 +45,7 @@ public class Door extends Entity {
 
     @Override
     public void draw(Graphics2D graphics) {
-        graphics.fillRect(x, y, width, height);
+        graphics.drawImage(img, x, y, null);
     }
 
     @Override

@@ -45,8 +45,11 @@ public class PlayerCharacter extends Entity{
     public void move(double dx, double dy) {
         x += dx;
         y += dy;
+        checkBorders();
         changeOrientationImage(dx, dy);
     }
+    
+    
     
     private void changeOrientationImage(double dx, double dy) {
         if(dx > 0) {
@@ -57,6 +60,26 @@ public class PlayerCharacter extends Entity{
             usedImage = downOrientationImage;
         } else if(dy < 0) {
             usedImage = upOrientationImage;
+        }
+    }
+    
+    private void checkBorders() {
+        int maximumX = 790;
+        int maximumY = 438;
+        int minimumX = 11;
+        int minimumY = 11;
+        
+        if(x + width > maximumX) {
+            x = maximumX - width;
+        }
+        if(y + height > maximumY) {
+            y = maximumY - height;
+        }
+        if(x < minimumX) {
+            x = minimumX;
+        }
+        if(y < minimumY) {
+            y = minimumY;
         }
     }
     
@@ -111,6 +134,8 @@ public class PlayerCharacter extends Entity{
     public DrawDepth getDrawDepth() {
         return DrawDepth.PLAYER;
     }
+
+    
 
     
 

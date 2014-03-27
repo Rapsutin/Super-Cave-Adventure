@@ -33,3 +33,7 @@ Lisäsin bounding-box -tyyppisen törmäyksentunnistuksen ja testit sille.
 26.3.2014
 Grafiikoita ja oven prototyyppi. (5h)
 
+27.3.2014
+Oven grafiikka, ovitesti, hahmo ei liiku enää yli reunojen, säädin 
+ikkunan kokoa niin, ettei kenttää jää piiloon. (3h)
+

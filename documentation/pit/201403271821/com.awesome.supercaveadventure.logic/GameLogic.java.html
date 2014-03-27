@@ -1,0 +1,1478 @@
+<html>
+<head>
+<style type='text/css'>
+html, body, div, span, p, blockquote, pre {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+
+body{
+	line-height: 1;
+	color: black;
+	background: white;
+	margin-left: 20px;
+}
+
+.src { 
+border: 1px solid #dddddd;
+padding-top: 10px;
+padding-right: 5px;
+padding-left: 5px;
+}
+
+
+.covered {background-color: #ddffdd}
+.uncovered {background-color: #ffdddd}
+.killed {background-color: #aaffaa}
+.survived {background-color: #ffaaaa}
+.uncertain {background-color: #dde7ef}
+.run_error {background-color: #dde7ef}
+.na {background-color: #eeeeee}
+.timed_out {background-color: #dde7ef}
+.non_viable {background-color: #aaffaa}
+.memory_error {background-color: #dde7ef}
+.not_started {background-color: #dde7ef; color : red}
+.no_coverage {background-color: #ffaaaa}
+
+</style>
+
+</head>
+<body>
+
+
+<h1>GameLogic.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_1'/>
+1
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_1'></a>
+</td>
+<td class=''><pre><span  class=''>/*</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_2'/>
+2
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_2'></a>
+</td>
+<td class=''><pre><span  class=''> * To change this template, choose Tools | Templates</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_3'/>
+3
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_3'></a>
+</td>
+<td class=''><pre><span  class=''> * and open the template in the editor.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_4'/>
+4
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_4'></a>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_5'/>
+5
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_5'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_6'/>
+6
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_6'></a>
+</td>
+<td class=''><pre><span  class=''>package com.awesome.supercaveadventure.logic;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_7'/>
+7
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_7'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_8'/>
+8
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_8'></a>
+</td>
+<td class=''><pre><span  class=''>import com.awesome.supercaveadventure.entity.abstracts.Entity;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_9'/>
+9
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_9'></a>
+</td>
+<td class=''><pre><span  class=''>import com.awesome.supercaveadventure.entity.player.PlayerCharacter;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_10'/>
+10
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_10'></a>
+</td>
+<td class=''><pre><span  class=''>import com.awesome.supercaveadventure.graphics.GameFrame;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_11'/>
+11
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_11'></a>
+</td>
+<td class=''><pre><span  class=''>import com.awesome.supercaveadventure.rooms.abstracts.Room;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_12'/>
+12
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_12'></a>
+</td>
+<td class=''><pre><span  class=''>import com.awesome.supercaveadventure.rooms.Room00;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_13'/>
+13
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_13'></a>
+</td>
+<td class=''><pre><span  class=''>import com.awesome.supercaveadventure.userinput.PlayerMover;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_14'/>
+14
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_14'></a>
+</td>
+<td class=''><pre><span  class=''>import java.util.ArrayList;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_15'/>
+15
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_15'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_16'/>
+16
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_16'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_17'/>
+17
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_17'></a>
+</td>
+<td class=''><pre><span  class=''>public class GameLogic {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_18'/>
+18
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_18'></a>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_19'/>
+19
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_19'></a>
+</td>
+<td class=''><pre><span  class=''>    private PlayerCharacter playerCharacter;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_20'/>
+20
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_20'></a>
+</td>
+<td class=''><pre><span  class=''>    private Room currentRoom;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_21'/>
+21
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_21'></a>
+</td>
+<td class=''><pre><span  class=''>    private ArrayList&#60;Entity&#62; entities;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_22'/>
+22
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_22'></a>
+</td>
+<td class=''><pre><span  class=''>    private PlayerMover playerMover;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_23'/>
+23
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_23'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_24'/>
+24
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_24'></a>
+</td>
+<td class='covered'><pre><span  class=''>    public GameLogic(GameFrame keyListenerLocation) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_25'/>
+25
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_25'></a>
+</td>
+<td class='covered'><pre><span  class=''>        entities = new ArrayList&#60;&#62;();</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_26'/>
+26
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_26'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        initializeGame();</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_27'/>
+27
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_27'></a>
+</td>
+<td class='covered'><pre><span  class=''>        playerMover = new PlayerMover(playerCharacter, keyListenerLocation.getPlayerKeyListener());</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_28'/>
+28
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_28'></a>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_29'/>
+29
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_29'></a>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_30'/>
+30
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_30'></a>
+</td>
+<td class=''><pre><span  class=''>    private void initializeGame() {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_31'/>
+31
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_31'></a>
+</td>
+<td class='covered'><pre><span  class=''>        playerCharacter = new PlayerCharacter(0, 0);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_32'/>
+32
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_32'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        changeCurrentRoom(new Room00(this));</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_33'/>
+33
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_33'></a>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_34'/>
+34
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_34'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_35'/>
+35
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_35'></a>
+</td>
+<td class=''><pre><span  class=''>    public void updateGame(double delta) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_36'/>
+36
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_36'>1</a>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        playerMover.movePlayer(delta);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_37'/>
+37
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_37'>1</a>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        checkForOverlaps();</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_38'/>
+38
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_38'></a>
+</td>
+<td class='uncovered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_39'/>
+39
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_39'></a>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_40'/>
+40
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_40'></a>
+</td>
+<td class=''><pre><span  class=''>    public void checkForOverlaps() {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_41'/>
+41
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_41'>1</a>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        for(Entity entity1: entities) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_42'/>
+42
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_42'>1</a>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            for(Entity entity2: entities) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_43'/>
+43
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_43'>2</a>
+</td>
+<td class='uncovered'><pre><span  class='survived'>                if(doEntitiesOverlap(entity1, entity2) &#38;&#38; entity1 != entity2) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_44'/>
+44
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_44'>1</a>
+</td>
+<td class='uncovered'><pre><span  class='survived'>                    entity1.onOverlap(entity2);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_45'/>
+45
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_45'>1</a>
+</td>
+<td class='uncovered'><pre><span  class='survived'>                    entity2.onOverlap(entity1);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_46'/>
+46
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_46'></a>
+</td>
+<td class=''><pre><span  class=''>                }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_47'/>
+47
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_47'></a>
+</td>
+<td class='uncovered'><pre><span  class=''>            }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_48'/>
+48
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_48'></a>
+</td>
+<td class='uncovered'><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_49'/>
+49
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_49'></a>
+</td>
+<td class='uncovered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_50'/>
+50
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_50'></a>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_51'/>
+51
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_51'></a>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_52'/>
+52
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_52'></a>
+</td>
+<td class=''><pre><span  class=''>     * Checks if entity2 overlaps entity1&#39;s </span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_53'/>
+53
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_53'></a>
+</td>
+<td class=''><pre><span  class=''>     * right or bottom side</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_54'/>
+54
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_54'></a>
+</td>
+<td class=''><pre><span  class=''>     * @param entity1</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_55'/>
+55
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_55'></a>
+</td>
+<td class=''><pre><span  class=''>     * @param entity2</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_56'/>
+56
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_56'></a>
+</td>
+<td class=''><pre><span  class=''>     * @return True if they overlap, otherwise False</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_57'/>
+57
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_57'></a>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_58'/>
+58
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_58'></a>
+</td>
+<td class=''><pre><span  class=''>    public boolean doEntitiesOverlap(Entity entity1, Entity entity2) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_59'/>
+59
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_59'>16</a>
+</td>
+<td class='covered'><pre><span  class='survived'>        if(entity2.getX() &#62; entity1.getX() + entity1.getWidth() - 1     ||</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_60'/>
+60
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_60'></a>
+</td>
+<td class=''><pre><span  class=''>           entity2.getY() &#62; entity1.getY() + entity1.getHeight() - 1    ||</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_61'/>
+61
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_61'></a>
+</td>
+<td class=''><pre><span  class=''>           entity1.getX() &#62; entity2.getX() + entity2.getWidth() - 1     ||</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_62'/>
+62
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_62'></a>
+</td>
+<td class=''><pre><span  class=''>           entity1.getY() &#62; entity2.getY() + entity2.getHeight() - 1) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_63'/>
+63
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_63'></a>
+</td>
+<td class=''><pre><span  class=''>            </span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_64'/>
+64
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_64'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>            return false;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_65'/>
+65
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_65'></a>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_66'/>
+66
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_66'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        return true;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_67'/>
+67
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_67'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_68'/>
+68
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_68'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_69'/>
+69
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_69'></a>
+</td>
+<td class=''><pre><span  class=''>    public void changeCurrentRoom(Room newRoom) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_70'/>
+70
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_70'></a>
+</td>
+<td class='covered'><pre><span  class=''>        currentRoom = newRoom;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_71'/>
+71
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_71'></a>
+</td>
+<td class='covered'><pre><span  class=''>        entities = currentRoom.getEntities();</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_72'/>
+72
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_72'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        addEntity(playerCharacter);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_73'/>
+73
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_73'>1</a>
+</td>
+<td class='covered'><pre><span  class='survived'>        playerCharacter.setX(currentRoom.getPlayerStartXPos());</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_74'/>
+74
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_74'>1</a>
+</td>
+<td class='covered'><pre><span  class='survived'>        playerCharacter.setY(currentRoom.getPlayerStartYPos());</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_75'/>
+75
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_75'></a>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_76'/>
+76
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_76'></a>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_77'/>
+77
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_77'></a>
+</td>
+<td class=''><pre><span  class=''>    public void addEntity(Entity entity) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_78'/>
+78
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_78'></a>
+</td>
+<td class='covered'><pre><span  class=''>        entities.add(entity);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_79'/>
+79
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_79'></a>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_80'/>
+80
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_80'></a>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_81'/>
+81
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_81'></a>
+</td>
+<td class=''><pre><span  class=''>    public void removeEntity(Entity entity) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_82'/>
+82
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_82'></a>
+</td>
+<td class='covered'><pre><span  class=''>        entities.remove(entity);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_83'/>
+83
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_83'></a>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_84'/>
+84
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_84'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_85'/>
+85
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_85'></a>
+</td>
+<td class=''><pre><span  class=''>    public ArrayList&#60;Entity&#62; getEntities() {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_86'/>
+86
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_86'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        return entities;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_87'/>
+87
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_87'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_88'/>
+88
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_88'></a>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_89'/>
+89
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_89'></a>
+</td>
+<td class=''><pre><span  class=''>    public PlayerCharacter getPlayerCharacter() {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_90'/>
+90
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_90'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        return playerCharacter;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_91'/>
+91
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_91'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_92'/>
+92
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_92'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_93'/>
+93
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_93'></a>
+</td>
+<td class=''><pre><span  class=''>    public Room getCurrentRoom() {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_94'/>
+94
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_94'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        return currentRoom;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_95'/>
+95
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_95'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_96'/>
+96
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_96'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_97'/>
+97
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_97'></a>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_98'/>
+98
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_98'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@15ab2e9_99'/>
+99
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_99'></a>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@15ab2e9_26'>26</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_26'/> 
+
+<p class='KILLED'>removed call to com/awesome/supercaveadventure/logic/GameLogic::initializeGame : KILLED -> com.awesome.logic.GameLogicTest.changeCurrentRoomShouldChangeTheCurrentRoom(com.awesome.logic.GameLogicTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@15ab2e9_32'>32</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_32'/> 
+
+<p class='KILLED'>removed call to com/awesome/supercaveadventure/logic/GameLogic::changeCurrentRoom : KILLED -> com.awesome.logic.GameLogicTest.playerCharacterShouldBeInEntitiesWhenStarting(com.awesome.logic.GameLogicTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@15ab2e9_36'>36</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_36'/> 
+
+<p class='NO_COVERAGE'>removed call to com/awesome/supercaveadventure/userinput/PlayerMover::movePlayer : NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@15ab2e9_37'>37</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_37'/> 
+
+<p class='NO_COVERAGE'>removed call to com/awesome/supercaveadventure/logic/GameLogic::checkForOverlaps : NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@15ab2e9_41'>41</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_41'/> 
+
+<p class='NO_COVERAGE'>negated conditional : NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@15ab2e9_42'>42</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_42'/> 
+
+<p class='NO_COVERAGE'>negated conditional : NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@15ab2e9_43'>43</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_43'/> 
+
+<p class='NO_COVERAGE'>negated conditional : NO_COVERAGE</p> <p class='NO_COVERAGE'>negated conditional : NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@15ab2e9_44'>44</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_44'/> 
+
+<p class='NO_COVERAGE'>removed call to com/awesome/supercaveadventure/entity/abstracts/Entity::onOverlap : NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@15ab2e9_45'>45</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_45'/> 
+
+<p class='NO_COVERAGE'>removed call to com/awesome/supercaveadventure/entity/abstracts/Entity::onOverlap : NO_COVERAGE</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@15ab2e9_59'>59</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_59'/> 
+
+<p class='KILLED'>Replaced double addition with subtraction : KILLED -> com.awesome.logic.GameLogicTest.isCollisionDetectedIfRightSideOverlaps(com.awesome.logic.GameLogicTest)</p> <p class='KILLED'>Replaced double addition with subtraction : KILLED -> com.awesome.logic.GameLogicTest.isCollisionDetectedIfRightSideOverlaps(com.awesome.logic.GameLogicTest)</p> <p class='SURVIVED'>changed conditional boundary : SURVIVED</p> <p class='KILLED'>Replaced double addition with subtraction : KILLED -> com.awesome.logic.GameLogicTest.isCollisionDetectedIfRightSideOverlaps(com.awesome.logic.GameLogicTest)</p> <p class='SURVIVED'>changed conditional boundary : SURVIVED</p> <p class='SURVIVED'>Replaced double subtraction with addition : SURVIVED</p> <p class='KILLED'>changed conditional boundary : KILLED -> com.awesome.logic.GameLogicTest.isCollisionDetectedIfRightSideOverlaps(com.awesome.logic.GameLogicTest)</p> <p class='SURVIVED'>Replaced double subtraction with addition : SURVIVED</p> <p class='SURVIVED'>changed conditional boundary : SURVIVED</p> <p class='KILLED'>negated conditional : KILLED -> com.awesome.logic.GameLogicTest.isCollisionDetectedIfRightSideOverlaps(com.awesome.logic.GameLogicTest)</p> <p class='KILLED'>Replaced double addition with subtraction : KILLED -> com.awesome.logic.GameLogicTest.isCollisionDetectedIfRightSideOverlaps(com.awesome.logic.GameLogicTest)</p> <p class='KILLED'>negated conditional : KILLED -> com.awesome.logic.GameLogicTest.isCollisionDetectedIfRightSideOverlaps(com.awesome.logic.GameLogicTest)</p> <p class='KILLED'>negated conditional : KILLED -> com.awesome.logic.GameLogicTest.isCollisionDetectedIfRightSideOverlaps(com.awesome.logic.GameLogicTest)</p> <p class='SURVIVED'>Replaced double subtraction with addition : SURVIVED</p> <p class='KILLED'>negated conditional : KILLED -> com.awesome.logic.GameLogicTest.isCollisionDetectedIfRightSideOverlaps(com.awesome.logic.GameLogicTest)</p> <p class='SURVIVED'>Replaced double subtraction with addition : SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@15ab2e9_64'>64</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_64'/> 
+
+<p class='KILLED'>replaced return of integer sized value with (x == 0 ? 1 : 0) : KILLED -> com.awesome.logic.GameLogicTest.CollisionShouldNotBeDetectedIfNothingOverlapsTest1(com.awesome.logic.GameLogicTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@15ab2e9_66'>66</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_66'/> 
+
+<p class='KILLED'>replaced return of integer sized value with (x == 0 ? 1 : 0) : KILLED -> com.awesome.logic.GameLogicTest.isCollisionDetectedIfRightSideOverlaps(com.awesome.logic.GameLogicTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@15ab2e9_72'>72</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_72'/> 
+
+<p class='KILLED'>removed call to com/awesome/supercaveadventure/logic/GameLogic::addEntity : KILLED -> com.awesome.logic.GameLogicTest.playerCharacterShouldBeInEntitiesWhenStarting(com.awesome.logic.GameLogicTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@15ab2e9_73'>73</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_73'/> 
+
+<p class='SURVIVED'>removed call to com/awesome/supercaveadventure/entity/player/PlayerCharacter::setX : SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@15ab2e9_74'>74</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_74'/> 
+
+<p class='SURVIVED'>removed call to com/awesome/supercaveadventure/entity/player/PlayerCharacter::setY : SURVIVED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@15ab2e9_86'>86</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_86'/> 
+
+<p class='KILLED'>mutated return of Object value for com/awesome/supercaveadventure/logic/GameLogic::getEntities to ( if (x != null) null else throw new RuntimeException ) : KILLED -> com.awesome.logic.GameLogicTest.playerCharacterShouldBeInEntitiesWhenStarting(com.awesome.logic.GameLogicTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@15ab2e9_90'>90</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_90'/> 
+
+<p class='KILLED'>mutated return of Object value for com/awesome/supercaveadventure/logic/GameLogic::getPlayerCharacter to ( if (x != null) null else throw new RuntimeException ) : KILLED -> com.awesome.logic.GameLogicTest.playerCharacterShouldBeInEntitiesWhenStarting(com.awesome.logic.GameLogicTest)</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@15ab2e9_94'>94</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@15ab2e9_94'/> 
+
+<p class='KILLED'>mutated return of Object value for com/awesome/supercaveadventure/logic/GameLogic::getCurrentRoom to ( if (x != null) null else throw new RuntimeException ) : KILLED -> com.awesome.logic.GameLogicTest.changeCurrentRoomShouldChangeTheCurrentRoom(com.awesome.logic.GameLogicTest)</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+
+<li class='mutator'>MATH_MUTATOR</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>com.awesome.graphics.DrawManagerTest.removing2EntitiesRemoves2Drawables(com.awesome.graphics.DrawManagerTest) (267 ms)</li><li>com.awesome.logic.GameLogicTest.CollisionShouldNotBeDetectedIfNothingOverlapsTest2(com.awesome.logic.GameLogicTest) (49 ms)</li><li>com.awesome.graphics.DrawManagerTest.tenAddedEntitiesShouldBeInDrawables(com.awesome.graphics.DrawManagerTest) (57 ms)</li><li>com.awesome.logic.GameLogicTest.isCollisionDetectedIfRightSideOverlaps(com.awesome.logic.GameLogicTest) (38 ms)</li><li>com.awesome.logic.GameLogicTest.changeCurrentRoomShouldChangeTheCurrentRoom(com.awesome.logic.GameLogicTest) (39 ms)</li><li>com.awesome.graphics.DrawManagerTest.removingAllEntitiesRemovesAllDrawables(com.awesome.graphics.DrawManagerTest) (234 ms)</li><li>com.awesome.logic.GameLogicTest.CollisionShouldNotBeDetectedIfNothingOverlapsTest1(com.awesome.logic.GameLogicTest) (42 ms)</li><li>com.awesome.logic.GameLogicTest.playerCharacterShouldBeTransportedWhileChangingRooms(com.awesome.logic.GameLogicTest) (42 ms)</li><li>com.awesome.graphics.DrawManagerTest.twoAddedEntitiesShouldBeInDrawables(com.awesome.graphics.DrawManagerTest) (61 ms)</li><li>com.awesome.logic.GameLogicTest.isCollisionDetectedIfAnEntityIsInsideAnotherEntity(com.awesome.logic.GameLogicTest) (40 ms)</li><li>com.awesome.supercaveadventure.entity.roomentities.StaircaseTest.aCollisionWithThePlayerShouldChangeTheRoom(com.awesome.supercaveadventure.entity.roomentities.StaircaseTest) (43 ms)</li><li>com.awesome.logic.GameLogicTest.isCollisionDetectedIfBottomOverlaps(com.awesome.logic.GameLogicTest) (39 ms)</li><li>com.awesome.graphics.DrawManagerTest.removing1EntityRemoves1Drawable(com.awesome.graphics.DrawManagerTest) (285 ms)</li><li>com.awesome.graphics.DrawManagerTest.oneAddedEntityShouldBeInDrawables(com.awesome.graphics.DrawManagerTest) (239 ms)</li><li>com.awesome.logic.GameLogicTest.isCollisionDetectedIfAnEntityOfEqualSizeIsAtTheSamePoint(com.awesome.logic.GameLogicTest) (61 ms)</li><li>com.awesome.logic.GameLogicTest.playerCharacterShouldBeInEntitiesWhenStarting(com.awesome.logic.GameLogicTest) (40 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 0.30
+
+</body>
+</html>

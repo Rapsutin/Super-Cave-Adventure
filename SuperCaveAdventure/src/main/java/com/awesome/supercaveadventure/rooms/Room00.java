@@ -3,7 +3,7 @@ package com.awesome.supercaveadventure.rooms;
 
 import com.awesome.supercaveadventure.rooms.abstracts.Room;
 import com.awesome.supercaveadventure.entity.abstracts.Entity;
-import com.awesome.supercaveadventure.entity.roomentities.Door;
+import com.awesome.supercaveadventure.entity.roomentities.Staircase;
 import com.awesome.supercaveadventure.graphics.ImageLoader;
 import com.awesome.supercaveadventure.graphics.enums.DrawDepth;
 import com.awesome.supercaveadventure.logic.GameLogic;
@@ -27,7 +27,7 @@ public class Room00 extends Room{
         playerStartXPos = 100;
         playerStartYPos = 180;
         ground = ImageLoader.loadImage("resources/ground.png");
-        entities.add(new Door(300, 180, 100, 70, new Room01(), gameLogic));
+        entities.add(new Staircase(300, 180, new Room01(), gameLogic));
     }
     
     
