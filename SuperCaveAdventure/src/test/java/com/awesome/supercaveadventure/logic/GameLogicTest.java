@@ -2,15 +2,15 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.awesome.logic;
+package com.awesome.supercaveadventure.logic;
 
 import com.awesome.supercaveadventure.entity.abstracts.Entity;
 import com.awesome.supercaveadventure.entity.player.PlayerCharacter;
 import com.awesome.supercaveadventure.logic.GameLogic;
 import com.awesome.supercaveadventure.logic.GameLoop;
 import com.awesome.supercaveadventure.rooms.abstracts.Room;
-import com.awesome.testobjects.TestEntity;
-import com.awesome.testobjects.TestRoom;
+import com.awesome.supercaveadventure.testobjects.TestEntity;
+import com.awesome.supercaveadventure.testobjects.TestRoom;
 import java.util.ArrayList;
 import org.junit.After;
 import org.junit.Before;
@@ -49,6 +49,8 @@ public class GameLogicTest {
         PlayerCharacter playerCharacter = gameLogic.getPlayerCharacter();
         gameLogic.changeCurrentRoom(testRoom);
         assertTrue(entities.contains(playerCharacter));
+        assertTrue(playerCharacter.getX() == testRoom.getPlayerStartXPos());
+        assertTrue(playerCharacter.getY() == testRoom.getPlayerStartYPos());
     }
     
     @Test
@@ -84,17 +86,28 @@ public class GameLogicTest {
     public void isCollisionDetectedIfRightSideOverlaps() {
         TestEntity entity1 = new TestEntity(4, 0, 5, 10);
         TestEntity entity2 = new TestEntity(8, 0, 5, 10);
-        testRoom.addEntity(entity1);
-        testRoom.addEntity(entity2);
-        gameLogic.changeCurrentRoom(testRoom);
-        
-        assertTrue(gameLogic.doEntitiesOverlap(entity1, entity2));
+        entitiesOverlap(entity1, entity2);
+    }
+    @Test
+    public void isCollisionDetectedIfLeftSideOverlaps() {
+        TestEntity entity2 = new TestEntity(4, 0, 5, 10);
+        TestEntity entity1 = new TestEntity(8, 0, 5, 10);
+        entitiesOverlap(entity1, entity2);
     }
     
     @Test
     public void isCollisionDetectedIfBottomOverlaps() {
         TestEntity entity1 = new TestEntity(4, 5, 5, 5);
         TestEntity entity2 = new TestEntity(4, 8, 4, 10);
+        entitiesOverlap(entity1, entity2);
+    }
+    @Test
+    public void isCollisionDetectedIfTopOverlaps() {
+        TestEntity entity2 = new TestEntity(4, 5, 5, 5);
+        TestEntity entity1 = new TestEntity(4, 8, 4, 10);
+        entitiesOverlap(entity1, entity2);
+    }
+    public void entitiesOverlap(TestEntity entity1, TestEntity entity2) {
         testRoom.addEntity(entity1);
         testRoom.addEntity(entity2);
         gameLogic.changeCurrentRoom(testRoom);
@@ -124,6 +137,8 @@ public class GameLogicTest {
         assertTrue(gameLogic.doEntitiesOverlap(entity1, entity2) ||
                     gameLogic.doEntitiesOverlap(entity2, entity1));
     }
+
+    
     
     
 }

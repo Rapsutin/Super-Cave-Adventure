@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.awesome.graphics;
+package com.awesome.supercaveadventure.graphics;
 
 import com.awesome.supercaveadventure.entity.abstracts.Entity;
 import com.awesome.supercaveadventure.entity.player.PlayerCharacter;
@@ -11,7 +11,7 @@ import com.awesome.supercaveadventure.graphics.DrawPanel;
 import com.awesome.supercaveadventure.graphics.interfaces.Drawable;
 import com.awesome.supercaveadventure.logic.GameLogic;
 import com.awesome.supercaveadventure.logic.GameLoop;
-import com.awesome.testobjects.TestRoom;
+import com.awesome.supercaveadventure.testobjects.TestRoom;
 import java.util.ArrayList;
 import org.junit.Before;
 

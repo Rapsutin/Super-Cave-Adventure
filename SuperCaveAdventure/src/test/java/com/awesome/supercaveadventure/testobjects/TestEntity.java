@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package com.awesome.testobjects;
+package com.awesome.supercaveadventure.testobjects;
 
 import com.awesome.supercaveadventure.entity.abstracts.Entity;
 import com.awesome.supercaveadventure.graphics.enums.DrawDepth;

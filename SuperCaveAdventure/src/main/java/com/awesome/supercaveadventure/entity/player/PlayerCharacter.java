@@ -30,15 +30,15 @@ public class PlayerCharacter extends Entity{
         width = 50;
         height = 50;
         speed = 4;
+        setupSprites();
+    }
+    
+     private void setupSprites() {
         upOrientationImage = ImageLoader.loadImage("resources/dudeUP.png");
         downOrientationImage = ImageLoader.loadImage("resources/dudeDOWN.png");
         rightOrientationImage = ImageLoader.loadImage("resources/dudeRIGHT.png");
         leftOrientationImage = ImageLoader.loadImage("resources/dudeLEFT.png");
         usedImage = rightOrientationImage;
-    }
-    
-    public void loadImage() {
-        
     }
     
     
@@ -127,13 +127,38 @@ public class PlayerCharacter extends Entity{
     public double getSpeed() {
         return speed;
     }
-    
-    
 
     @Override
     public DrawDepth getDrawDepth() {
         return DrawDepth.PLAYER;
     }
+
+    public BufferedImage getUsedImage() {
+        return usedImage;
+    }
+
+    public BufferedImage getDownOrientationImage() {
+        return downOrientationImage;
+    }
+
+    public BufferedImage getLeftOrientationImage() {
+        return leftOrientationImage;
+    }
+
+    public BufferedImage getRightOrientationImage() {
+        return rightOrientationImage;
+    }
+
+    public BufferedImage getUpOrientationImage() {
+        return upOrientationImage;
+    }
+    
+
+   
+
+   
+    
+    
 
     
 

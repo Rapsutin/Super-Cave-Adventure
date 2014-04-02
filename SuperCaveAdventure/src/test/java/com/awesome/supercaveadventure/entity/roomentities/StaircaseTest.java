@@ -8,7 +8,7 @@ import com.awesome.supercaveadventure.entity.player.PlayerCharacter;
 import com.awesome.supercaveadventure.logic.GameLogic;
 import com.awesome.supercaveadventure.logic.GameLoop;
 import com.awesome.supercaveadventure.rooms.abstracts.Room;
-import com.awesome.testobjects.TestRoom;
+import com.awesome.supercaveadventure.testobjects.TestRoom;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
