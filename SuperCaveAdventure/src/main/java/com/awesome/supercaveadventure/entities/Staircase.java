@@ -1,12 +1,12 @@
 
-package com.awesome.supercaveadventure.entity.roomentities;
+package com.awesome.supercaveadventure.entities;
 
-import com.awesome.supercaveadventure.entity.abstracts.Entity;
-import com.awesome.supercaveadventure.entity.player.PlayerCharacter;
+import com.awesome.supercaveadventure.entities.Entity;
+import com.awesome.supercaveadventure.entities.PlayerCharacter;
 import com.awesome.supercaveadventure.graphics.ImageLoader;
-import com.awesome.supercaveadventure.graphics.enums.DrawDepth;
+import com.awesome.supercaveadventure.graphics.DrawDepth;
 import com.awesome.supercaveadventure.logic.GameLogic;
-import com.awesome.supercaveadventure.rooms.abstracts.Room;
+import com.awesome.supercaveadventure.rooms.Room;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 

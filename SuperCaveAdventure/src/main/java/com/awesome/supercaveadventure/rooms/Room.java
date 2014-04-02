@@ -1,7 +1,7 @@
-package com.awesome.supercaveadventure.rooms.abstracts;
+package com.awesome.supercaveadventure.rooms;
 
-import com.awesome.supercaveadventure.entity.abstracts.Entity;
-import com.awesome.supercaveadventure.graphics.interfaces.Drawable;
+import com.awesome.supercaveadventure.entities.Entity;
+import com.awesome.supercaveadventure.graphics.Drawable;
 import java.util.ArrayList;
 
 /**

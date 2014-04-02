@@ -2,9 +2,10 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.awesome.supercaveadventure.entity.player;
+package com.awesome.supercaveadventure.entities;
 
 
+import com.awesome.supercaveadventure.entities.PlayerCharacter;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

@@ -2,9 +2,8 @@
 
 package com.awesome.supercaveadventure.graphics;
 
-import com.awesome.supercaveadventure.entity.abstracts.Entity;
-import com.awesome.supercaveadventure.graphics.interfaces.Drawable;
-import com.awesome.supercaveadventure.rooms.abstracts.Room;
+import com.awesome.supercaveadventure.entities.Entity;
+import com.awesome.supercaveadventure.rooms.Room;
 import java.util.ArrayList;
 import java.util.Collections;
 import javax.swing.SwingUtilities;

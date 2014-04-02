@@ -1,10 +1,10 @@
 
 package com.awesome.supercaveadventure.logic;
 
-import com.awesome.supercaveadventure.entity.abstracts.Entity;
-import com.awesome.supercaveadventure.entity.player.PlayerCharacter;
+import com.awesome.supercaveadventure.entities.Entity;
+import com.awesome.supercaveadventure.entities.PlayerCharacter;
 import com.awesome.supercaveadventure.graphics.GameFrame;
-import com.awesome.supercaveadventure.rooms.abstracts.Room;
+import com.awesome.supercaveadventure.rooms.Room;
 import com.awesome.supercaveadventure.rooms.Room00;
 import com.awesome.supercaveadventure.userinput.PlayerMover;
 import java.util.ArrayList;

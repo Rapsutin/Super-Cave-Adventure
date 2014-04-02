@@ -1,9 +1,9 @@
 
 package com.awesome.supercaveadventure.testobjects;
 
-import com.awesome.supercaveadventure.entity.abstracts.Entity;
-import com.awesome.supercaveadventure.graphics.enums.DrawDepth;
-import com.awesome.supercaveadventure.rooms.abstracts.Room;
+import com.awesome.supercaveadventure.entities.Entity;
+import com.awesome.supercaveadventure.graphics.DrawDepth;
+import com.awesome.supercaveadventure.rooms.Room;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
 

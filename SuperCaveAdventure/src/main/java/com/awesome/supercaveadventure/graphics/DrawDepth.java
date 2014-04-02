@@ -1,5 +1,5 @@
 
-package com.awesome.supercaveadventure.graphics.enums;
+package com.awesome.supercaveadventure.graphics;
 
 /**
  * DrawDepth tells the order of sprites (which one is on top) 

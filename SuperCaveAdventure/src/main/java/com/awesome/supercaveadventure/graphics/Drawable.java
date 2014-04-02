@@ -1,7 +1,6 @@
 
-package com.awesome.supercaveadventure.graphics.interfaces;
+package com.awesome.supercaveadventure.graphics;
 
-import com.awesome.supercaveadventure.graphics.enums.DrawDepth;
 import java.awt.Graphics2D;
 
 /**

@@ -2,12 +2,13 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.awesome.supercaveadventure.entity.roomentities;
+package com.awesome.supercaveadventure.entities;
 
-import com.awesome.supercaveadventure.entity.player.PlayerCharacter;
+import com.awesome.supercaveadventure.entities.Staircase;
+import com.awesome.supercaveadventure.entities.PlayerCharacter;
 import com.awesome.supercaveadventure.logic.GameLogic;
 import com.awesome.supercaveadventure.logic.GameLoop;
-import com.awesome.supercaveadventure.rooms.abstracts.Room;
+import com.awesome.supercaveadventure.rooms.Room;
 import com.awesome.supercaveadventure.testobjects.TestRoom;
 import org.junit.Test;
 import static org.junit.Assert.*;

@@ -1,7 +1,6 @@
 
 package com.awesome.supercaveadventure.graphics;
 
-import com.awesome.supercaveadventure.graphics.interfaces.Drawable;
 import java.util.Comparator;
 
 /**

@@ -1,7 +1,7 @@
 
-package com.awesome.supercaveadventure.entity.abstracts;
+package com.awesome.supercaveadventure.entities;
 
-import com.awesome.supercaveadventure.graphics.interfaces.Drawable;
+import com.awesome.supercaveadventure.graphics.Drawable;
 
 /**
  * Every object inside a room is considered an entity.

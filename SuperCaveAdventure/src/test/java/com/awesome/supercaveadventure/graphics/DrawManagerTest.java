@@ -4,11 +4,10 @@
  */
 package com.awesome.supercaveadventure.graphics;
 
-import com.awesome.supercaveadventure.entity.abstracts.Entity;
-import com.awesome.supercaveadventure.entity.player.PlayerCharacter;
+import com.awesome.supercaveadventure.entities.Entity;
+import com.awesome.supercaveadventure.entities.PlayerCharacter;
 import com.awesome.supercaveadventure.graphics.DrawManager;
 import com.awesome.supercaveadventure.graphics.DrawPanel;
-import com.awesome.supercaveadventure.graphics.interfaces.Drawable;
 import com.awesome.supercaveadventure.logic.GameLogic;
 import com.awesome.supercaveadventure.logic.GameLoop;
 import com.awesome.supercaveadventure.testobjects.TestRoom;

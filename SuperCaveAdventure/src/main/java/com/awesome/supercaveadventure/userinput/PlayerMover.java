@@ -1,6 +1,6 @@
 package com.awesome.supercaveadventure.userinput;
 
-import com.awesome.supercaveadventure.entity.player.PlayerCharacter;
+import com.awesome.supercaveadventure.entities.PlayerCharacter;
 
 /**
  * Takes the player input and translates it into

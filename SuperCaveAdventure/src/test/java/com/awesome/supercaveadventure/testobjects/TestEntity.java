@@ -5,8 +5,8 @@
 
 package com.awesome.supercaveadventure.testobjects;
 
-import com.awesome.supercaveadventure.entity.abstracts.Entity;
-import com.awesome.supercaveadventure.graphics.enums.DrawDepth;
+import com.awesome.supercaveadventure.entities.Entity;
+import com.awesome.supercaveadventure.graphics.DrawDepth;
 import java.awt.Graphics2D;
 
 

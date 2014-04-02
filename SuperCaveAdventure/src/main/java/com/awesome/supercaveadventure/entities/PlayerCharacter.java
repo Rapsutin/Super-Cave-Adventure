@@ -1,8 +1,8 @@
-package com.awesome.supercaveadventure.entity.player;
+package com.awesome.supercaveadventure.entities;
 
-import com.awesome.supercaveadventure.entity.abstracts.Entity;
+import com.awesome.supercaveadventure.entities.Entity;
 import com.awesome.supercaveadventure.graphics.ImageLoader;
-import com.awesome.supercaveadventure.graphics.enums.DrawDepth;
+import com.awesome.supercaveadventure.graphics.DrawDepth;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 

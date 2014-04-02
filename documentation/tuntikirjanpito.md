@@ -37,3 +37,6 @@ Grafiikoita ja oven prototyyppi. (5h)
 Oven grafiikka, ovitesti, hahmo ei liiku enää yli reunojen, säädin 
 ikkunan kokoa niin, ettei kenttää jää piiloon. (3h)
 
+2.4.2014
+Tein runsaasti uusia testejä ja kirjoitin myös paljon JavaDoc-dokumentaatiota.
+(3,5h)
