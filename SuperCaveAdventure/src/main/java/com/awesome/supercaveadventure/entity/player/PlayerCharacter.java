@@ -4,12 +4,10 @@ import com.awesome.supercaveadventure.entity.abstracts.Entity;
 import com.awesome.supercaveadventure.graphics.ImageLoader;
 import com.awesome.supercaveadventure.graphics.enums.DrawDepth;
 import java.awt.Graphics2D;
-import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 
 /**
- *
- * 
+ * The character controlled by the player.
  */
 public class PlayerCharacter extends Entity{
     private int x;
@@ -41,7 +39,12 @@ public class PlayerCharacter extends Entity{
         usedImage = rightOrientationImage;
     }
     
-    
+    /**
+     * Moves the PlayerCharacter-object while checking
+     * that it is inside the game borders.
+     * @param dx Movement to the right in pixels
+     * @param dy Movement down in pixels
+     */
     public void move(double dx, double dy) {
         x += dx;
         y += dy;

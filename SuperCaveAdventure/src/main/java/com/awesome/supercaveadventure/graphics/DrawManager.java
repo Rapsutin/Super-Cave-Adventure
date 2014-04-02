@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 
 package com.awesome.supercaveadventure.graphics;
 
@@ -14,7 +11,9 @@ import javax.swing.SwingUtilities;
 
 
 
-
+/**
+ * Controls what is drawn to the DrawPanel.
+ */
 public class DrawManager {
     private DrawPanel drawPanel;
     private GameFrame gameFrame;

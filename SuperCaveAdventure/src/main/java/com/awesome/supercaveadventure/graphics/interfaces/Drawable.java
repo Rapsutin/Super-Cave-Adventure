@@ -5,12 +5,15 @@ import com.awesome.supercaveadventure.graphics.enums.DrawDepth;
 import java.awt.Graphics2D;
 
 /**
- *
- * @author Juho
+ * Any object that can be drawn on DrawPanel.
  */
 public interface Drawable {
 
-    
+    /**
+     * Draws the object onto the
+     * screen.
+     * @param graphics The object will be drawn on this.
+     */
     public void draw(Graphics2D graphics);
     public DrawDepth getDrawDepth();
     

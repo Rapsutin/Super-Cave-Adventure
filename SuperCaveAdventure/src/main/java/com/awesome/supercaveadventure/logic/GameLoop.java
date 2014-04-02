@@ -4,6 +4,11 @@ package com.awesome.supercaveadventure.logic;
 
 import com.awesome.supercaveadventure.graphics.DrawManager;
 
+
+/**
+ * Updates the game periodically and is also used to 
+ * start the game.
+ */
 public class GameLoop {
     
 
@@ -11,9 +16,6 @@ public class GameLoop {
     private GameLogic gameLogic;
     
     
-    /**
-     * Initializes the game & the game loop. Use run() to start the game loop
-     */
     public GameLoop() {
         drawManager = new DrawManager();
         gameLogic = new GameLogic(drawManager.getGameFrame());

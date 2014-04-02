@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package com.awesome.supercaveadventure.logic;
 
@@ -13,7 +9,9 @@ import com.awesome.supercaveadventure.rooms.Room00;
 import com.awesome.supercaveadventure.userinput.PlayerMover;
 import java.util.ArrayList;
 
-
+/**
+ * Handles the game logic on a high level.
+ */
 public class GameLogic {
     
     private PlayerCharacter playerCharacter;

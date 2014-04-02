@@ -11,8 +11,7 @@ import javax.swing.JPanel;
 
 
 /**
- *
- * @author Juho
+ * The game is drawn on this element.
  */
 public class DrawPanel extends JPanel{
     private ArrayList<Drawable> drawables;
@@ -30,6 +29,12 @@ public class DrawPanel extends JPanel{
         drawAll(graphics);
     }
     
+    /**
+     * Draws every drawable object
+     * that should be on screen.
+     * @param graphics The objects will be
+     * drawn on this.
+     */
     public void drawAll(Graphics graphics) {
         for(Drawable d : drawables) {
             d.draw((Graphics2D)graphics);

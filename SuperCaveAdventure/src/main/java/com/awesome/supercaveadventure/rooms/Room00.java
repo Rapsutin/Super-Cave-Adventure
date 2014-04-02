@@ -12,8 +12,7 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 /**
- *
- * This is here for testing purposes only. Will be removed in the final release.
+ * The first room in the game
  */
 public class Room00 extends Room{
     private ArrayList<Entity> entities;

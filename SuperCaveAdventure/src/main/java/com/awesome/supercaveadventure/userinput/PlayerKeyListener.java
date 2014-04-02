@@ -5,8 +5,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 /**
- *
- * @author Juho
+ * Tells which keys are pressed right now and which aren't.
  */
 public class PlayerKeyListener implements KeyListener{
     

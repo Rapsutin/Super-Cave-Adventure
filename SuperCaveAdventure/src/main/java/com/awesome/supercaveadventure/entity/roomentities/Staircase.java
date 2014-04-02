@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.awesome.supercaveadventure.entity.roomentities;
 
 import com.awesome.supercaveadventure.entity.abstracts.Entity;
@@ -13,7 +10,10 @@ import com.awesome.supercaveadventure.rooms.abstracts.Room;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
-
+/**
+ * When the PlayerCharacter walks into this, 
+ * the current room is changed to another.
+ */
 public class Staircase extends Entity {
 
     private int x;

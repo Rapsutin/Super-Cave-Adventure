@@ -8,8 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
 /**
- *
- * @author Juho
+ * The window that contains DrawPanel.
  */
 public class GameFrame implements Runnable {
 
@@ -22,7 +21,8 @@ public class GameFrame implements Runnable {
         this.drawPanel.setDoubleBuffered(true);
         playerKeyListener = new PlayerKeyListener();
     }
-
+    
+    
     @Override
     public void run() {
 

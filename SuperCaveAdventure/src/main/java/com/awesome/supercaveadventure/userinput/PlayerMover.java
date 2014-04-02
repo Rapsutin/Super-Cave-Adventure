@@ -2,20 +2,29 @@ package com.awesome.supercaveadventure.userinput;
 
 import com.awesome.supercaveadventure.entity.player.PlayerCharacter;
 
+/**
+ * Takes the player input and translates it into
+ * movement.
+ */
 public class PlayerMover {
 
     private PlayerCharacter playerCharacter;
     private PlayerKeyListener playerKeyListener;
   
-
-   
-
     public PlayerMover(PlayerCharacter playerCharacter, PlayerKeyListener playerKeyListener) {
         this.playerCharacter = playerCharacter;
         this.playerKeyListener = playerKeyListener;
         
     }
-
+    
+    /**
+     * Translates key presses
+     * into movement.
+     * @param delta A time-dependent scalar
+     * that is used to calculate how much
+     * the player should be moved to fight
+     * against inconsistent fps-rates.
+     */
     public void movePlayer(double delta) {
 
         if (playerKeyListener.isDown()) {
