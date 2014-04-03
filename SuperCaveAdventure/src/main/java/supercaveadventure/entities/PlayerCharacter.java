@@ -1,6 +1,5 @@
 package supercaveadventure.entities;
 
-import supercaveadventure.entities.Entity;
 import supercaveadventure.graphics.ImageLoader;
 import supercaveadventure.graphics.DrawDepth;
 import java.awt.Graphics2D;
@@ -9,12 +8,10 @@ import java.awt.image.BufferedImage;
 /**
  * The character controlled by the player.
  */
-public class PlayerCharacter extends Entity{
-    private int x;
-    private int y;
-    private int width;
-    private int height;
+public class PlayerCharacter extends Entity implements Mortal{
+    
     private double speed;
+    private boolean alive;
     private BufferedImage upOrientationImage;
     private BufferedImage downOrientationImage;
     private BufferedImage leftOrientationImage;
@@ -23,8 +20,8 @@ public class PlayerCharacter extends Entity{
     
 
     public PlayerCharacter(int x, int y) {
-        this.x = x;
-        this.y = y;
+        super(x, y);
+        alive = true;
         width = 50;
         height = 50;
         speed = 4;
@@ -95,36 +92,18 @@ public class PlayerCharacter extends Entity{
     @Override
     public void draw(Graphics2D graphics) {
         
-        graphics.drawImage(usedImage, x, y, null);
+        graphics.drawImage(usedImage, (int)x, (int)y, null);
         
     }
 
+    
+    
     public void setX(int x) {
         this.x = x;
     }
 
     public void setY(int y) {
         this.y = y;
-    }
-
-    @Override
-    public double getX() {
-        return x;
-    }
-
-    @Override
-    public double getY() {
-        return y;
-    }
-
-    @Override
-    public int getHeight() {
-        return height;
-    }
-
-    @Override
-    public int getWidth() {
-        return width;
     }
 
     public double getSpeed() {
@@ -155,16 +134,16 @@ public class PlayerCharacter extends Entity{
     public BufferedImage getUpOrientationImage() {
         return upOrientationImage;
     }
-    
 
-   
+    @Override
+    public boolean isAlive() {
+        return alive;
+    }
 
-   
-    
-    
-
-    
-
+    @Override
+    public void setAlive(boolean isAlive) {
+        alive = isAlive;
+    }
     
 
 }

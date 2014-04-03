@@ -8,6 +8,7 @@ import supercaveadventure.graphics.DrawDepth;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+import supercaveadventure.entities.Enemy1;
 
 /**
  * The second room.
@@ -24,6 +25,8 @@ public class Room01 extends Room{
         ground = ImageLoader.loadImage("resources/ground.png");
         playerStartXPos = 100;
         playerStartYPos = 180;
+        
+        entities.add(new Enemy1(400, 400));
     }
 
     @Override

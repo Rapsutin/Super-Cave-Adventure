@@ -8,6 +8,7 @@ import supercaveadventure.rooms.Room;
 import supercaveadventure.rooms.Room00;
 import supercaveadventure.userinput.PlayerMover;
 import java.util.ArrayList;
+import supercaveadventure.entities.Mortal;
 
 /**
  * Handles the game logic on a high level.
@@ -33,6 +34,7 @@ public class GameLogic {
     public void updateGame(double delta) {
         playerMover.movePlayer(delta);
         checkForOverlaps();
+        removeDeadEntities();
     }
     
     public void checkForOverlaps() {
@@ -46,9 +48,28 @@ public class GameLogic {
         }
     }
     
+    public void removeDeadEntities() {
+        ArrayList<Mortal> deadEntities = new ArrayList<>();
+        for(Entity e : entities) {
+            removeFromEntitiesIfDead(e, deadEntities);
+        }
+        for(Mortal m : deadEntities) {
+            removeEntity((Entity) m);
+        }
+        
+    }
+    private void removeFromEntitiesIfDead(Entity e, ArrayList<Mortal> deadEntities) {
+        if(e instanceof Mortal) {
+            Mortal mortalEntity = (Mortal)e;
+            if(!mortalEntity.isAlive()) {
+                deadEntities.add(mortalEntity);
+            }
+        }
+    }
+    
     /**
-     * Checks if entity2 overlaps entity1's 
-     * right or bottom side
+     * Checks if entity2 overlaps
+     * right or bottom side of entity1
      * @param entity1
      * @param entity2
      * @return True if they overlap, otherwise False
@@ -91,6 +112,8 @@ public class GameLogic {
     public Room getCurrentRoom() {
         return currentRoom;
     }
+
+    
 
     
 

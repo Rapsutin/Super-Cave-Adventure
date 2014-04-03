@@ -16,20 +16,17 @@ import java.awt.image.BufferedImage;
  */
 public class Staircase extends Entity {
 
-    private int x;
-    private int y;
-    private int height;
-    private int width;
+    
+   
     private Room nextRoom;
     private GameLogic gameLogic;
     private BufferedImage img;
     
 
     public Staircase(int x, int y, Room nextRoom, GameLogic gameLogic) {
-        this.x = x;
-        this.y = y;
-        this.height = 50;
-        this.width = 50;
+        super(x, y);
+        height = 50;
+        width = 50;
         this.nextRoom = nextRoom;
         this.gameLogic = gameLogic;
         img = ImageLoader.loadImage("resources/staircaseDoor.png");
@@ -45,33 +42,11 @@ public class Staircase extends Entity {
 
     @Override
     public void draw(Graphics2D graphics) {
-        graphics.drawImage(img, x, y, null);
+        graphics.drawImage(img, (int)x, (int)y, null);
     }
 
     @Override
     public DrawDepth getDrawDepth() {
         return DrawDepth.DOOR;
     }
-
-    @Override
-    public double getX() {
-        return x;
-    }
-
-    @Override
-    public double getY() {
-        return y;
-    }
-
-    @Override
-    public int getHeight() {
-        return height;
-    }
-
-    @Override
-    public int getWidth() {
-        return width;
-    }
-
-    
 }

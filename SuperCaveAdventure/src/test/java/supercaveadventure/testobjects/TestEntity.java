@@ -8,44 +8,20 @@ package supercaveadventure.testobjects;
 import supercaveadventure.entities.Entity;
 import supercaveadventure.graphics.DrawDepth;
 import java.awt.Graphics2D;
+import supercaveadventure.entities.Mortal;
 
 
-public class TestEntity extends Entity{
+public class TestEntity extends Entity implements Mortal{
     
-    private double x;
-    private double y;
-    private int height;
-    private int width;
+    private boolean alive;
 
     public TestEntity(double x, double y, int width, int height) {
-        this.x = x;
-        this.y = y;
-        this.height = height;
-        this.width = width;
+        super(x, y);
+        alive = true;
+        super.height = height;
+        super.width = width;
     }
     
-    
-    
-    @Override
-    public double getX() {
-        return x;
-    }
-
-    @Override
-    public double getY() {
-        return y;
-    }
-
-    @Override
-    public int getHeight() {
-        return height;
-    }
-
-    @Override
-    public int getWidth() {
-        return width;
-    }
-
     @Override
     public DrawDepth getDrawDepth() {
         return DrawDepth.PLAYER;
@@ -57,6 +33,16 @@ public class TestEntity extends Entity{
 
     @Override
     public void draw(Graphics2D graphics) {
+    }
+
+    @Override
+    public boolean isAlive() {
+        return alive;
+    }
+
+    @Override
+    public void setAlive(boolean isAlive) {
+        alive = isAlive;
     }
 
 }

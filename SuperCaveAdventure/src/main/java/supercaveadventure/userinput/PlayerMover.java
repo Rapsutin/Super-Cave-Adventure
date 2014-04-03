@@ -26,15 +26,17 @@ public class PlayerMover {
      * against inconsistent fps-rates.
      */
     public void movePlayer(double delta) {
-
+        
+        double movementDistance = delta * playerCharacter.getSpeed();
+        
         if (playerKeyListener.isDown()) {
-            playerCharacter.move(0, delta * playerCharacter.getSpeed());
+            playerCharacter.move(0, movementDistance);
         } else if (playerKeyListener.isUp()) {
-            playerCharacter.move(0, -delta * playerCharacter.getSpeed());
+            playerCharacter.move(0, -movementDistance);
         } else if (playerKeyListener.isLeft()) {
-            playerCharacter.move(-delta * playerCharacter.getSpeed(), 0);
+            playerCharacter.move(-movementDistance, 0);
         } else if (playerKeyListener.isRight()) {
-            playerCharacter.move(delta * playerCharacter.getSpeed(), 0);
+            playerCharacter.move(movementDistance, 0);
         }
     }
 }

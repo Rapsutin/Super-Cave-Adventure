@@ -30,12 +30,16 @@ public class DrawManager {
      */
     public void updateDrawables(ArrayList<Entity> entities, Room currentRoom) {
         drawables = new ArrayList<>(entities.size());
-        for (Entity e : entities) {
-            drawables.add(e);
-        }
+        addEntitiesToDrawables(entities);
         drawables.add(currentRoom);
         Collections.sort(drawables, new DrawDepthComparator());
         drawPanel.setDrawables(drawables);
+    }
+    
+    private void addEntitiesToDrawables(ArrayList<Entity> entities) {
+        for (Entity e : entities) {
+            drawables.add(e);
+        }
     }
     
     public void updateDrawPanel() {
@@ -49,6 +53,8 @@ public class DrawManager {
     public GameFrame getGameFrame() {
         return gameFrame;
     }
+
+    
     
     
     

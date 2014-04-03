@@ -40,3 +40,14 @@ ikkunan kokoa niin, ettei kenttää jää piiloon. (3h)
 2.4.2014
 Tein runsaasti uusia testejä ja kirjoitin myös paljon JavaDoc-dokumentaatiota.
 (3,5h)
+Siistin pakkausrakennetta.
+(0,5h)
+
+3.4.2014
+Tein pelaajan liikuttamisesta ja huoneen vaihtamisesta sekvenssidiagrammit.
+(2h)
+Refaktoroin entityjä. Nyt osa gettereistä ja settereistä abstraktissa Entity-luokassa.
+Lisäsin Enemy1-luokan, joka tappaa pelaajan, kun pelaaja osuu siihen.
+Lisäsin Mortal-rajapinnan.
+Loin asianmukaiset testit.
+(3h)
