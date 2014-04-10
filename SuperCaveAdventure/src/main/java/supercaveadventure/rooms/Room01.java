@@ -9,6 +9,7 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import supercaveadventure.entities.Enemy1;
+import supercaveadventure.logic.GameLogic;
 
 /**
  * The second room.
@@ -20,13 +21,14 @@ public class Room01 extends Room{
     private int playerStartYPos;
     private BufferedImage ground;
 
-    public Room01() {
+    public Room01(GameLogic gameLogic) {
         entities = new ArrayList<>();
         ground = ImageLoader.loadImage("resources/ground.png");
         playerStartXPos = 100;
         playerStartYPos = 180;
         
-        entities.add(new Enemy1(400, 400));
+        entities.add(new Enemy1(400, 400, gameLogic));
+        entities.add(new Enemy1(400, 300, gameLogic));
     }
 
     @Override

@@ -4,7 +4,10 @@ package supercaveadventure.entities;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.util.ArrayList;
+import java.util.Random;
 import supercaveadventure.graphics.DrawDepth;
+import supercaveadventure.logic.GameLogic;
 
 /**
  * An enemy prototype.
@@ -12,10 +15,16 @@ import supercaveadventure.graphics.DrawDepth;
 public class Enemy1 extends Entity implements MovableEntity, Mortal{
     
     private boolean alive;
+    private Direction currentDirection;
+    private PlayerCharacter playerCharacter;
 
-    public Enemy1(double x, double y) {
+    public Enemy1(double x, double y, GameLogic gameLogic) {
         super(x, y);
+        width = 30;
+        height = 30;
+        currentDirection = Direction.getRandomDirection();
         alive = true;
+        playerCharacter = gameLogic.getPlayerCharacter();
     }
 
     @Override
@@ -29,7 +38,7 @@ public class Enemy1 extends Entity implements MovableEntity, Mortal{
     @Override
     public void draw(Graphics2D graphics) {
         graphics.setPaint(Color.BLACK);
-        graphics.fillRect((int)x, (int)y, 30, 30);
+        graphics.fillRect((int)x, (int)y, width, height);
     }
 
     @Override
@@ -38,8 +47,70 @@ public class Enemy1 extends Entity implements MovableEntity, Mortal{
     }
 
     @Override
-    public void move() {
+    public void move(double delta) {
+        
+        Random r = new Random();
+        int movementOrder = r.nextInt(100);
+        
+        if(movementOrder < 90) {
+            moveToCurrentDirection(delta);
+        } else {
+            setCurrentDirection(getRandomDirectionTowardsPlayer());
+            moveToCurrentDirection(delta);
+        } 
+        
+        if(overlapsBorder()) {
+            setCurrentDirection(Direction.getRandomDirection());
+        }
+        checkBorders();
     }
+    
+    private Direction getRandomDirectionTowardsPlayer() {
+        ArrayList<Direction> possibleDirections = getAllDirectionsTowardsPlayer();
+        return getRandomDirectionFromList(possibleDirections);
+    }
+
+    public ArrayList<Direction> getAllDirectionsTowardsPlayer() {
+        ArrayList<Direction> possibleDirections = new ArrayList<>();
+        if(playerCharacter.getX() < this.x) {
+            possibleDirections.add(Direction.LEFT);
+        } else {
+            possibleDirections.add(Direction.RIGHT);
+        }
+        
+        if(playerCharacter.getY() < this.y) {
+            possibleDirections.add(Direction.UP);
+        } else {
+            possibleDirections.add(Direction.DOWN);
+        }
+        return possibleDirections;
+    }
+    private Direction getRandomDirectionFromList(ArrayList<Direction> directions) {
+        Random r = new Random();
+        int index = r.nextInt(directions.size());
+        return directions.get(index);
+    }
+    
+    public void moveToCurrentDirection(double delta) {
+        double speed = 4;
+        double distance = speed * delta;
+        
+        if(currentDirection == Direction.LEFT) {
+            x -= distance;
+        } else if(currentDirection == Direction.RIGHT) {
+            x += distance;
+        } else if(currentDirection == Direction.DOWN) {
+            y += distance;
+        } else {
+            y -= distance;
+        }
+        
+    }
+    
+        
+    
+    
+    
 
     @Override
     public boolean isAlive() {
@@ -50,5 +121,11 @@ public class Enemy1 extends Entity implements MovableEntity, Mortal{
     public void setAlive(boolean isAlive) {
         alive = isAlive;
     }
+
+    public void setCurrentDirection(Direction currentDirection) {
+        this.currentDirection = currentDirection;
+    }
+    
+    
 
 }

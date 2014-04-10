@@ -16,6 +16,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import supercaveadventure.entities.Enemy1;
 
 /**
  *
@@ -136,6 +137,19 @@ public class GameLogicTest {
         
         assertTrue(gameLogic.doEntitiesOverlap(entity1, entity2) ||
                     gameLogic.doEntitiesOverlap(entity2, entity1));
+    }
+    
+    @Test
+    public void movableEntitiesAreMovedWhenUpdating() {
+        Enemy1 enemy1 = new Enemy1(200, 200, gameLogic);
+        Enemy1 enemy2 = new Enemy1(200, 200, gameLogic);
+        testRoom.addEntity(enemy1);
+        testRoom.addEntity(enemy2);
+        gameLogic.changeCurrentRoom(testRoom);
+        
+        gameLogic.updateGame(1);
+        assertTrue((enemy1.getX() != 200) || (enemy1.getY() != 200));
+        assertTrue((enemy2.getX() != 200) || (enemy2.getY() != 200));
     }
 
     

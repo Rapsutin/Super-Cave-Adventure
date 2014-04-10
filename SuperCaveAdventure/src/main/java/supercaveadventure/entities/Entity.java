@@ -22,6 +22,47 @@ public abstract class Entity implements Drawable{
     
     public abstract void onOverlap(Entity collidingEntity);
     
+    protected void checkBorders() {
+        int maximumX = 790;
+        int maximumY = 438;
+        int minimumX = 11;
+        int minimumY = 11;
+        
+        if(x + width > maximumX) {
+            x = maximumX - width;
+        }
+        if(y + height > maximumY) {
+            y = maximumY - height;
+        }
+        if(x < minimumX) {
+            x = minimumX;
+        }
+        if(y < minimumY) {
+            y = minimumY;
+        }
+    }
+    
+    public boolean overlapsBorder() {
+        int maximumX = 790;
+        int maximumY = 438;
+        int minimumX = 11;
+        int minimumY = 11;
+        
+        if(x + width > maximumX) {
+            return true;
+        }
+        if(y + height > maximumY) {
+            return true;
+        }
+        if(x < minimumX) {
+            return true;
+        }
+        if(y < minimumY) {
+            return true;
+        }
+        return false;
+    }
+    
     public double getX() {
         return x;
     }

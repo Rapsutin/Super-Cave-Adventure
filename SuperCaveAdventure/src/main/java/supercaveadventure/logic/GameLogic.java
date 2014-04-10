@@ -9,6 +9,7 @@ import supercaveadventure.rooms.Room00;
 import supercaveadventure.userinput.PlayerMover;
 import java.util.ArrayList;
 import supercaveadventure.entities.Mortal;
+import supercaveadventure.entities.MovableEntity;
 
 /**
  * Handles the game logic on a high level.
@@ -33,6 +34,7 @@ public class GameLogic {
 
     public void updateGame(double delta) {
         playerMover.movePlayer(delta);
+        moveAllMovableEntities(delta);
         checkForOverlaps();
         removeDeadEntities();
     }
@@ -63,6 +65,15 @@ public class GameLogic {
             Mortal mortalEntity = (Mortal)e;
             if(!mortalEntity.isAlive()) {
                 deadEntities.add(mortalEntity);
+            }
+        }
+    }
+    
+    public void moveAllMovableEntities(double delta) {
+        for (Entity e : entities) {
+            if(e instanceof MovableEntity) {
+                MovableEntity entityToBeMoved = (MovableEntity) e;
+                entityToBeMoved.move(delta);
             }
         }
     }

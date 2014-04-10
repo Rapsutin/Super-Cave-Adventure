@@ -25,7 +25,7 @@ public class Room00 extends Room{
         playerStartXPos = 100;
         playerStartYPos = 180;
         ground = ImageLoader.loadImage("resources/ground.png");
-        entities.add(new Staircase(300, 180, new Room01(), gameLogic));
+        entities.add(new Staircase(300, 180, new Room01(gameLogic), gameLogic));
     }
     
     

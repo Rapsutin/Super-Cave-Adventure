@@ -49,8 +49,6 @@ public class PlayerCharacter extends Entity implements Mortal{
         changeOrientationImage(dx, dy);
     }
     
-    
-    
     private void changeOrientationImage(double dx, double dy) {
         if(dx > 0) {
             usedImage = rightOrientationImage;
@@ -63,31 +61,11 @@ public class PlayerCharacter extends Entity implements Mortal{
         }
     }
     
-    private void checkBorders() {
-        int maximumX = 790;
-        int maximumY = 438;
-        int minimumX = 11;
-        int minimumY = 11;
-        
-        if(x + width > maximumX) {
-            x = maximumX - width;
-        }
-        if(y + height > maximumY) {
-            y = maximumY - height;
-        }
-        if(x < minimumX) {
-            x = minimumX;
-        }
-        if(y < minimumY) {
-            y = minimumY;
-        }
-    }
-    
+   
     @Override
     public void onOverlap(Entity collidingEntity) {
         
     }
-    
     
     @Override
     public void draw(Graphics2D graphics) {
@@ -95,8 +73,6 @@ public class PlayerCharacter extends Entity implements Mortal{
         graphics.drawImage(usedImage, (int)x, (int)y, null);
         
     }
-
-    
     
     public void setX(int x) {
         this.x = x;

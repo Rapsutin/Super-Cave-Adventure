@@ -9,5 +9,5 @@ package supercaveadventure.entities;
  * @author Juho
  */
 public interface MovableEntity {
-    public void move();
+    public void move(double delta);
 }
