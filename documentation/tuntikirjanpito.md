@@ -62,5 +62,6 @@ Laitoin vihollisen hakeutumaan pelaajaa p‰in.
 Tein luotiluokan, jota pelaaja k‰ytt‰‰
 ampumiseen (ampuminen toteutetaan ensi viikolla).
 (7h)
+Tein sekvenssikaavion (0,5h)
 
 
