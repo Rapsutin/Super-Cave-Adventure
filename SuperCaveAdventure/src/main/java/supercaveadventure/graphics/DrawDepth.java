@@ -10,7 +10,8 @@ public enum DrawDepth {
     ROOM(0),
     DOOR(70),
     ENEMY(90),
-    PLAYER(100);
+    PLAYER(100),
+    BULLET(101);
     
     private final int depth;
     

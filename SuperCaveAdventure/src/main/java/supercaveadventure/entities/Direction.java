@@ -20,6 +20,10 @@ public enum Direction {
     private Direction() {
     }
     
+    /**
+     * Returns a random direction.
+     * @return Random direction.
+     */
     public static Direction getRandomDirection() {
         Random r = new Random();
         int randomNumber = r.nextInt(4);

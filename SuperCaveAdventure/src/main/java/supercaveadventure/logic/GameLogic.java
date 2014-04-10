@@ -69,6 +69,12 @@ public class GameLogic {
         }
     }
     
+    /**
+     * Moves all the movable entities in the 
+     * current room except PlayerCharacter
+     * 
+     * @param delta Time-dependent scalar
+     */
     public void moveAllMovableEntities(double delta) {
         for (Entity e : entities) {
             if(e instanceof MovableEntity) {

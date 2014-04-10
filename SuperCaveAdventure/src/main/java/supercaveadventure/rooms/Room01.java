@@ -8,6 +8,8 @@ import supercaveadventure.graphics.DrawDepth;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+import supercaveadventure.entities.Bullet;
+import supercaveadventure.entities.Direction;
 import supercaveadventure.entities.Enemy1;
 import supercaveadventure.logic.GameLogic;
 
@@ -29,6 +31,7 @@ public class Room01 extends Room{
         
         entities.add(new Enemy1(400, 400, gameLogic));
         entities.add(new Enemy1(400, 300, gameLogic));
+        
     }
 
     @Override

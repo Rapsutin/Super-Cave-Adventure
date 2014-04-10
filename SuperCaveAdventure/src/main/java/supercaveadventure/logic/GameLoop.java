@@ -25,6 +25,8 @@ public class GameLoop {
      * This runs the game once it has been initialized.
      */
     public void run() {
+        drawManager = new DrawManager();
+        gameLogic = new GameLogic(drawManager.getGameFrame());
         long lastLoopTime = System.nanoTime();
         final int TARGET_FPS = 60;
         final long OPTIMAL_TIME = 1000000000 / TARGET_FPS;

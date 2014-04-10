@@ -33,6 +33,9 @@ public class Enemy1 extends Entity implements MovableEntity, Mortal{
             Mortal killedPlayer = (Mortal) collidingEntity;
             killedPlayer.setAlive(false);
         }
+        if(collidingEntity instanceof Bullet) {
+            setAlive(false);
+        }
     }
 
     @Override
@@ -45,7 +48,11 @@ public class Enemy1 extends Entity implements MovableEntity, Mortal{
     public DrawDepth getDrawDepth() {
         return DrawDepth.ENEMY;
     }
-
+    
+    /**
+     * Moves the enemy1 randomly.
+     * @param delta Time-dependent scalar
+     */
     @Override
     public void move(double delta) {
         
@@ -69,7 +76,12 @@ public class Enemy1 extends Entity implements MovableEntity, Mortal{
         ArrayList<Direction> possibleDirections = getAllDirectionsTowardsPlayer();
         return getRandomDirectionFromList(possibleDirections);
     }
-
+    
+    /**
+     * Returns all the directions that could be used
+     * to get closer to the player.
+     * @return The directions.
+     */
     public ArrayList<Direction> getAllDirectionsTowardsPlayer() {
         ArrayList<Direction> possibleDirections = new ArrayList<>();
         if(playerCharacter.getX() < this.x) {
@@ -91,6 +103,10 @@ public class Enemy1 extends Entity implements MovableEntity, Mortal{
         return directions.get(index);
     }
     
+    /**
+     * Moves enemy1 to the direction it is currently facing.
+     * @param delta Time-dependent scalar.
+     */
     public void moveToCurrentDirection(double delta) {
         double speed = 4;
         double distance = speed * delta;
@@ -107,11 +123,6 @@ public class Enemy1 extends Entity implements MovableEntity, Mortal{
         
     }
     
-        
-    
-    
-    
-
     @Override
     public boolean isAlive() {
         return alive;
