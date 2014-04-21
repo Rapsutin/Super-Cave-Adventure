@@ -34,7 +34,7 @@ public class StaircaseTest {
     @Test
     public void aCollisionWithThePlayerShouldChangeTheRoom() {
         Room currentRoom = gameLogic.getCurrentRoom();
-        staircase.onOverlap(new PlayerCharacter(0, 0));
+        staircase.onOverlap(new PlayerCharacter(0, 0, gameLogic));
         assertNotSame(currentRoom, gameLogic.getCurrentRoom());
     }
 }

@@ -28,7 +28,7 @@ public class GameLogic {
     }
     
     private void initializeGame() {
-        playerCharacter = new PlayerCharacter(0, 0);
+        playerCharacter = new PlayerCharacter(0, 0, this);
         changeCurrentRoom(new Room00(this));
     }
 

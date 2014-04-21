@@ -50,7 +50,7 @@ public class Bullet extends Entity implements Mortal, MovableEntity{
 
     @Override
     public void move(double delta) {
-        int speed = 5;
+        int speed = 6;
         double distance = speed * delta;
         if(movementDirection == Direction.DOWN) {
             y += distance;

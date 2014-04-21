@@ -40,4 +40,17 @@ public enum Direction {
         }   
    
     }
+    
+    public static double getDirectionInRadians(Direction direction) {
+        if(direction == RIGHT) {
+            return 0;
+        } else if(direction == UP) {
+            return Math.PI/2;
+        } else if(direction == LEFT) {
+            return Math.PI;
+        } else {
+            return 1.5*Math.PI;
+        }
+    }
+    
 }

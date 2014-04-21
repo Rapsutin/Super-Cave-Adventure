@@ -1,39 +1,33 @@
 package supercaveadventure.entities;
 
-import supercaveadventure.graphics.ImageLoader;
 import supercaveadventure.graphics.DrawDepth;
+import supercaveadventure.logic.GameLogic;
 import java.awt.Graphics2D;
-import java.awt.image.BufferedImage;
+import supercaveadventure.graphics.sprites.PlayerCharacterSprite;
 
 /**
  * The character controlled by the player.
  */
 public class PlayerCharacter extends Entity implements Mortal{
     
+    private double lastShotTime;
     private double speed;
     private boolean alive;
-    private BufferedImage upOrientationImage;
-    private BufferedImage downOrientationImage;
-    private BufferedImage leftOrientationImage;
-    private BufferedImage rightOrientationImage;
-    private BufferedImage usedImage; //Which image should be drawn
+    private Direction orientation;
+    private PlayerCharacterSprite sprite;
+    private GameLogic gameLogic;
     
 
-    public PlayerCharacter(int x, int y) {
+    public PlayerCharacter(int x, int y, GameLogic gameLogic) {
         super(x, y);
+        lastShotTime = 0;
         alive = true;
         width = 50;
         height = 50;
         speed = 4;
-        setupSprites();
-    }
-    
-     private void setupSprites() {
-        upOrientationImage = ImageLoader.loadImage("resources/dudeUP.png");
-        downOrientationImage = ImageLoader.loadImage("resources/dudeDOWN.png");
-        rightOrientationImage = ImageLoader.loadImage("resources/dudeRIGHT.png");
-        leftOrientationImage = ImageLoader.loadImage("resources/dudeLEFT.png");
-        usedImage = rightOrientationImage;
+        orientation = Direction.RIGHT;
+        sprite = new PlayerCharacterSprite(this);
+        this.gameLogic = gameLogic;
     }
     
     /**
@@ -45,20 +39,50 @@ public class PlayerCharacter extends Entity implements Mortal{
     public void move(double dx, double dy) {
         x += dx;
         y += dy;
+        
         checkBorders();
-        changeOrientationImage(dx, dy);
+        changeOrientation(dx, dy);
+        shoot();
     }
     
-    private void changeOrientationImage(double dx, double dy) {
+    private void changeOrientation(double dx, double dy) {
         if(dx > 0) {
-            usedImage = rightOrientationImage;
+            orientation = Direction.RIGHT;
         } else if(dx < 0) {
-            usedImage = leftOrientationImage;
+            orientation = Direction.LEFT;
         } else if(dy > 0) {
-            usedImage = downOrientationImage;
+            orientation = Direction.DOWN;
         } else if(dy < 0) {
-            usedImage = upOrientationImage;
+            orientation = Direction.UP;
         }
+    }
+    
+    public void shoot() {
+        double shotAttemptTime = System.currentTimeMillis();
+        
+        if(shotAttemptTime - lastShotTime < 1000) {
+            return;
+        }
+        
+        lastShotTime = shotAttemptTime;
+        if(orientation == Direction.RIGHT) {
+            gameLogic.addEntity(new Bullet(x+50, y+45, orientation));
+        } else if(orientation == Direction.LEFT){
+            gameLogic.addEntity(new Bullet(x-7, y, orientation));
+        } else if(orientation == Direction.DOWN) {
+            gameLogic.addEntity(new Bullet(x+3, y+50, orientation));
+        } else {
+            gameLogic.addEntity(new Bullet(x+45, y-5, orientation));
+        }
+        
+        
+    }
+    
+    public double getRotatedVectorX(double vectorX, double vectorY, double rotation) {
+        return Math.cos(rotation)*vectorX - Math.sin(rotation)*vectorY;
+    }
+    public double getRotatedVectorY(double vectorX, double vectorY, double rotation) {
+        return Math.sin(rotation)*vectorX + Math.cos(rotation)*vectorY;
     }
     
    
@@ -69,9 +93,7 @@ public class PlayerCharacter extends Entity implements Mortal{
     
     @Override
     public void draw(Graphics2D graphics) {
-        
-        graphics.drawImage(usedImage, (int)x, (int)y, null);
-        
+        sprite.draw(graphics);
     }
     
     public void setX(int x) {
@@ -91,25 +113,11 @@ public class PlayerCharacter extends Entity implements Mortal{
         return DrawDepth.PLAYER;
     }
 
-    public BufferedImage getUsedImage() {
-        return usedImage;
+    public Direction getOrientation() {
+        return orientation;
     }
 
-    public BufferedImage getDownOrientationImage() {
-        return downOrientationImage;
-    }
-
-    public BufferedImage getLeftOrientationImage() {
-        return leftOrientationImage;
-    }
-
-    public BufferedImage getRightOrientationImage() {
-        return rightOrientationImage;
-    }
-
-    public BufferedImage getUpOrientationImage() {
-        return upOrientationImage;
-    }
+    
 
     @Override
     public boolean isAlive() {

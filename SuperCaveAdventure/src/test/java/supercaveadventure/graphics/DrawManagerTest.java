@@ -63,7 +63,7 @@ public class DrawManagerTest {
 
     public void addDrawablesIntoTestRoom(int numberOfDrawables) {
         for (int i = 0; i < numberOfDrawables; i++) {
-            testRoom.addEntity(new PlayerCharacter(400, 100));
+            testRoom.addEntity(new PlayerCharacter(400, 100, gameLogic));
         }
         gameLogic.changeCurrentRoom(testRoom);
         drawManager.updateDrawables(gameLogic.getEntities(), gameLogic.getCurrentRoom());
