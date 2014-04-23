@@ -27,7 +27,7 @@ public class StaircaseTest {
     public StaircaseTest() {
         gameLoop = new GameLoop();
         gameLogic = gameLoop.getGameLogic();
-        nextRoom = new TestRoom();
+        nextRoom = new TestRoom(gameLogic);
         staircase = new Staircase(30, 30, nextRoom, gameLogic);
     }
 

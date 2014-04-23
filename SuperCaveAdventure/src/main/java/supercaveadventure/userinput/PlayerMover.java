@@ -25,8 +25,12 @@ public class PlayerMover {
      * the player should be moved to fight
      * against inconsistent fps-rates.
      */
-    public void movePlayer(double delta) {
-        
+    public void controlPlayerCharacter(double delta) {
+        movePlayerCharacter(delta);
+        makePlayerCharacterShoot();
+    }
+
+    public void movePlayerCharacter(double delta) {
         double movementDistance = delta * playerCharacter.getSpeed();
         
         if (playerKeyListener.isDown()) {
@@ -37,6 +41,12 @@ public class PlayerMover {
             playerCharacter.move(-movementDistance, 0);
         } else if (playerKeyListener.isRight()) {
             playerCharacter.move(movementDistance, 0);
+        }
+    }
+    
+    public void makePlayerCharacterShoot() {
+        if(playerKeyListener.isSpacebar()) {
+            playerCharacter.shoot();
         }
     }
 }

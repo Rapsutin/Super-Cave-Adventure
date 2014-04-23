@@ -2,15 +2,12 @@
 
 package supercaveadventure.rooms;
 
-import supercaveadventure.entities.Entity;
 import supercaveadventure.graphics.ImageLoader;
 import supercaveadventure.graphics.DrawDepth;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
-import java.util.ArrayList;
-import supercaveadventure.entities.Bullet;
-import supercaveadventure.entities.Direction;
 import supercaveadventure.entities.Enemy1;
+import supercaveadventure.entities.Staircase;
 import supercaveadventure.logic.GameLogic;
 
 /**
@@ -18,35 +15,20 @@ import supercaveadventure.logic.GameLogic;
  */
 public class Room01 extends Room{
     
-    private ArrayList<Entity> entities;
-    private int playerStartXPos;
-    private int playerStartYPos;
     private BufferedImage ground;
+    private Enemy1 enemy1;
+    private Enemy1 enemy2;
 
     public Room01(GameLogic gameLogic) {
-        entities = new ArrayList<>();
+        super(gameLogic);
         ground = ImageLoader.loadImage("resources/ground.png");
         playerStartXPos = 100;
         playerStartYPos = 180;
+        enemy1 = new Enemy1(600, 400, gameLogic);
+        enemy2 = new Enemy1(600, 300, gameLogic);
+        entities.add(enemy1);
+        entities.add(enemy2);
         
-        entities.add(new Enemy1(400, 400, gameLogic));
-        entities.add(new Enemy1(400, 300, gameLogic));
-        
-    }
-
-    @Override
-    public ArrayList<Entity> getEntities() {
-        return entities;
-    }
-
-    @Override
-    public int getPlayerStartXPos() {
-        return playerStartXPos;
-    }
-
-    @Override
-    public int getPlayerStartYPos() {
-        return playerStartYPos;
     }
 
     @Override
@@ -57,6 +39,14 @@ public class Room01 extends Room{
     @Override
     public DrawDepth getDrawDepth() {
         return DrawDepth.ROOM;
+    }
+
+    @Override
+    public void checkWinCondition() {
+        if(!enemy1.isAlive() && !enemy2.isAlive() && !winConditionMet) {
+            winConditionMet = true;
+            gameLogic.addEntity(new Staircase(400, 200, new Room00(gameLogic), gameLogic));
+        }
     }
 
 }

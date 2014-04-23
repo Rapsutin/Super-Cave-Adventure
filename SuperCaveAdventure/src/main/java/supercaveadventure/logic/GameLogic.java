@@ -33,10 +33,11 @@ public class GameLogic {
     }
 
     public void updateGame(double delta) {
-        playerMover.movePlayer(delta);
+        playerMover.controlPlayerCharacter(delta);
         moveAllMovableEntities(delta);
         checkForOverlaps();
         removeDeadEntities();
+        currentRoom.checkWinCondition();
     }
     
     public void checkForOverlaps() {

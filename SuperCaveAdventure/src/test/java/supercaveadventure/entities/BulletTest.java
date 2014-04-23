@@ -20,7 +20,7 @@ public class BulletTest {
     
     @Test 
     public void bulletMovesToRight() {
-        TestRoom testRoom = new TestRoom();
+        TestRoom testRoom = new TestRoom(gameLogic);
         Bullet testBullet = new Bullet(300, 300, Direction.RIGHT);
         testRoom.addEntity(testBullet);
         
@@ -32,7 +32,7 @@ public class BulletTest {
     }
     @Test 
     public void bulletMovesToLeft() {
-        TestRoom testRoom = new TestRoom();
+        TestRoom testRoom = new TestRoom(gameLogic);
         Bullet testBullet = new Bullet(300, 300, Direction.LEFT);
         testRoom.addEntity(testBullet);
         
@@ -44,7 +44,7 @@ public class BulletTest {
     }
     @Test 
     public void bulletMovesDownwards() {
-        TestRoom testRoom = new TestRoom();
+        TestRoom testRoom = new TestRoom(gameLogic);
         Bullet testBullet = new Bullet(300, 300, Direction.DOWN);
         testRoom.addEntity(testBullet);
         
@@ -56,7 +56,7 @@ public class BulletTest {
     }
     @Test 
     public void bulletMovesUpwards() {
-        TestRoom testRoom = new TestRoom();
+        TestRoom testRoom = new TestRoom(gameLogic);
         Bullet testBullet = new Bullet(300, 300, Direction.UP);
         testRoom.addEntity(testBullet);
         
@@ -69,7 +69,7 @@ public class BulletTest {
     
     @Test
     public void bulletNotDestroyedAfterHitWithStaircase() {
-        TestRoom testRoom = new TestRoom();
+        TestRoom testRoom = new TestRoom(gameLogic);
         Bullet testBullet = new Bullet(300, 300, Direction.UP);
         Staircase testStaircase = new Staircase(299, 299, testRoom, gameLogic);
         
@@ -84,9 +84,9 @@ public class BulletTest {
         assertTrue(testBullet.isAlive());
     }
     @Test
-    public void bulletDestroyedAfterHitWithNonStaircaseEntity() {
-        TestRoom testRoom = new TestRoom();
-        Bullet testBullet = new Bullet(300, 300, Direction.UP);
+    public void bulletDestroyedAfterAHitWithANonStaircaseEntity() {
+        TestRoom testRoom = new TestRoom(gameLogic);
+        Bullet testBullet = new Bullet(300, 330, Direction.UP);
         TestEntity testEntity = new TestEntity(299, 299, 40, 40);
         
         testRoom.addEntity(testEntity);
@@ -102,7 +102,7 @@ public class BulletTest {
     
     @Test
     public void bulletShouldBeDestroyedWhenItHitsABorder() {
-        TestRoom testRoom = new TestRoom();
+        TestRoom testRoom = new TestRoom(gameLogic);
         Bullet testBullet = new Bullet(300, 300, Direction.UP);
         
         testRoom.addEntity(testBullet);

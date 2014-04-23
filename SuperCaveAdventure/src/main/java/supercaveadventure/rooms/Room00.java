@@ -14,18 +14,15 @@ import java.util.ArrayList;
  * The first room in the game
  */
 public class Room00 extends Room{
-    private ArrayList<Entity> entities;
-    private int playerStartXPos;
-    private int playerStartYPos;
+    
     private BufferedImage ground;
+    
 
     public Room00(GameLogic gameLogic) {
-        
-        entities = new ArrayList<>();
+        super(gameLogic);
         playerStartXPos = 100;
         playerStartYPos = 180;
         ground = ImageLoader.loadImage("resources/ground.png");
-        entities.add(new Staircase(300, 180, new Room01(gameLogic), gameLogic));
     }
     
     
@@ -42,18 +39,11 @@ public class Room00 extends Room{
     }
 
     @Override
-    public ArrayList<Entity> getEntities() {
-        return entities;
-    }
-
-    @Override
-    public int getPlayerStartXPos() {
-        return playerStartXPos;
-    }
-
-    @Override
-    public int getPlayerStartYPos() {
-        return playerStartYPos;
+    public void checkWinCondition() {
+        if(winConditionMet == false) {
+            entities.add(new Staircase(300, 180, new Room01(gameLogic), gameLogic));
+            winConditionMet = true;
+        }
     }
     
 }

@@ -42,7 +42,7 @@ public class PlayerCharacter extends Entity implements Mortal{
         
         checkBorders();
         changeOrientation(dx, dy);
-        shoot();
+       
     }
     
     private void changeOrientation(double dx, double dy) {
@@ -60,19 +60,28 @@ public class PlayerCharacter extends Entity implements Mortal{
     public void shoot() {
         double shotAttemptTime = System.currentTimeMillis();
         
-        if(shotAttemptTime - lastShotTime < 1000) {
+        if(shotAttemptTime - lastShotTime < 750) {
             return;
         }
         
         lastShotTime = shotAttemptTime;
+        
         if(orientation == Direction.RIGHT) {
+            
             gameLogic.addEntity(new Bullet(x+50, y+45, orientation));
+            
         } else if(orientation == Direction.LEFT){
+            
             gameLogic.addEntity(new Bullet(x-7, y, orientation));
+            
         } else if(orientation == Direction.DOWN) {
+            
             gameLogic.addEntity(new Bullet(x+3, y+50, orientation));
+            
         } else {
+            
             gameLogic.addEntity(new Bullet(x+45, y-5, orientation));
+            
         }
         
         

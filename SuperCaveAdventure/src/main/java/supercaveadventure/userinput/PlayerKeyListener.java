@@ -14,12 +14,14 @@ public class PlayerKeyListener implements KeyListener{
     private boolean right;
     private boolean down;
     private boolean up;
+    private boolean spacebar;
 
     public PlayerKeyListener() {
         left = false;
         right = false;
         down = false;
         up = false;
+        spacebar = false;
     }
 
     @Override
@@ -47,6 +49,9 @@ public class PlayerKeyListener implements KeyListener{
             case KeyEvent.VK_UP:
                 up = wasItPressed;
                 break;
+            case KeyEvent.VK_SPACE:
+                spacebar = wasItPressed;
+                break;
         }
     }
     @Override
@@ -68,6 +73,12 @@ public class PlayerKeyListener implements KeyListener{
     public boolean isUp() {
         return up;
     }
+
+    public boolean isSpacebar() {
+        return spacebar;
+    }
+    
+    
     
     public KeyEvent getKeyEvent() {
         return keyEvent;

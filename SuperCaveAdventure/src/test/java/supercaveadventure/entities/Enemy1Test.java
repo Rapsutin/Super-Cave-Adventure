@@ -22,7 +22,7 @@ public class Enemy1Test {
     public Enemy1Test() {
         gameLoop = new GameLoop();
         gameLogic = gameLoop.getGameLogic();
-        gameLogic.changeCurrentRoom(new TestRoom());
+        gameLogic.changeCurrentRoom(new TestRoom(gameLogic));
     }
     
     @Test

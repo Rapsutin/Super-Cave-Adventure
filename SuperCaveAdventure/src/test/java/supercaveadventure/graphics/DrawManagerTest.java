@@ -33,7 +33,7 @@ public class DrawManagerTest {
         GameLoop gameLoop = new GameLoop();
         drawManager = gameLoop.getDrawManager();
         gameLogic = gameLoop.getGameLogic();
-        testRoom = new TestRoom();
+        testRoom = new TestRoom(gameLogic);
     }
     
      @Test

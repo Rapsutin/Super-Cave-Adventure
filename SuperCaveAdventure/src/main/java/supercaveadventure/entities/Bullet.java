@@ -2,6 +2,7 @@
 
 package supercaveadventure.entities;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 import supercaveadventure.graphics.DrawDepth;
 
@@ -30,6 +31,7 @@ public class Bullet extends Entity implements Mortal, MovableEntity{
 
     @Override
     public void draw(Graphics2D graphics) {
+        graphics.setPaint(Color.BLACK);
         graphics.fillOval((int)x, (int)y, width, height);
     }
 

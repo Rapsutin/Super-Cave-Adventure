@@ -32,7 +32,7 @@ public class GameLogicTest {
     public void setUp() {
         GameLoop gameLoop = new GameLoop();
         gameLogic = gameLoop.getGameLogic();
-        testRoom = new TestRoom();
+        testRoom = new TestRoom(gameLogic);
     }
     
     
@@ -57,7 +57,7 @@ public class GameLogicTest {
     @Test
     public void changeCurrentRoomShouldChangeTheCurrentRoom() {
         Room previous = gameLogic.getCurrentRoom();
-        gameLogic.changeCurrentRoom(new TestRoom());
+        gameLogic.changeCurrentRoom(new TestRoom(gameLogic));
         assertNotSame(previous, gameLogic.getCurrentRoom());
     }
     

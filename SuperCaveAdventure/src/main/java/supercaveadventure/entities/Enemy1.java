@@ -108,7 +108,7 @@ public class Enemy1 extends Entity implements MovableEntity, Mortal{
      * @param delta Time-dependent scalar.
      */
     public void moveToCurrentDirection(double delta) {
-        double speed = 4;
+        double speed = 3;
         double distance = speed * delta;
         
         if(currentDirection == Direction.LEFT) {

@@ -22,7 +22,7 @@ public class MortalTest {
     public MortalTest() {
         gameLoop = new GameLoop();
         gameLogic = gameLoop.getGameLogic();
-        gameLogic.changeCurrentRoom(new TestRoom());
+        gameLogic.changeCurrentRoom(new TestRoom(gameLogic));
     }
     
     @Test
