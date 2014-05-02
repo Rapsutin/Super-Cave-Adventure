@@ -1,16 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 
 package supercaveadventure.rooms;
 
-import java.awt.Font;
 import java.awt.Graphics2D;
 import supercaveadventure.entities.Enemy1;
 import supercaveadventure.entities.Enemy2;
 import supercaveadventure.entities.Staircase;
+import supercaveadventure.graphics.sprites.Room03Sprite;
+import supercaveadventure.graphics.sprites.Sprite;
 import supercaveadventure.logic.GameLogic;
 
 /**
@@ -21,12 +18,16 @@ public class Room03 extends Room{
     
     
     private Staircase staircaseToNextRoom;
+    private Sprite room03Sprite;
+    
     public Room03(GameLogic gameLogic) {
         super(gameLogic);
         addNewEnemyEntity(new Enemy2(500, 300, gameLogic));
         addNewEnemyEntity(new Enemy1(700, 300, gameLogic));
         addNewEnemyEntity(new Enemy1(600, 400, gameLogic));
         addNewEnemyEntity(new Enemy1(600, 300, gameLogic));
+        
+        room03Sprite = new Room03Sprite(this);
     }
 
     @Override
@@ -42,12 +43,7 @@ public class Room03 extends Room{
     @Override
     public void draw(Graphics2D graphics) {
         drawGround(graphics);
-        if(winConditionMet) {
-            graphics.setFont(new Font("Arial", Font.BOLD, 30));
-            graphics.drawString("YOU WON! Now give me a 5/5 grade.", 35, 60);
-            graphics.drawString("Play again?", 460, 335);
-            
-        }
+        room03Sprite.draw(graphics);
     }
     
 }

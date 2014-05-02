@@ -108,14 +108,6 @@ public class PlayerCharacter extends Entity implements Mortal{
         return false;
     }
     
-    public double getRotatedVectorX(double vectorX, double vectorY, double rotation) {
-        return Math.cos(rotation)*vectorX - Math.sin(rotation)*vectorY;
-    }
-    public double getRotatedVectorY(double vectorX, double vectorY, double rotation) {
-        return Math.sin(rotation)*vectorX + Math.cos(rotation)*vectorY;
-    }
-    
-   
     @Override
     public void onOverlap(Entity collidingEntity) {
         

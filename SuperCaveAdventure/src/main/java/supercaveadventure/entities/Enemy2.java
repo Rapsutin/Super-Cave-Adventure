@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 
 package supercaveadventure.entities;
 
@@ -12,8 +8,8 @@ import supercaveadventure.graphics.sprites.Sprite;
 import supercaveadventure.logic.GameLogic;
 
 /**
- *
- * @author local
+ * An enemy that can take two 
+ * bullets before dying.
  */
 public class Enemy2 extends Enemy1{
     
@@ -32,12 +28,22 @@ public class Enemy2 extends Enemy1{
         reduceHealthWhenBulletHits(collidingEntity);
     }
     
+    /**
+     * Reduces health if Enemy2
+     * collides with a Bullet.
+     * @param collidingEntity 
+     */
     public void reduceHealthWhenBulletHits(Entity collidingEntity) {
         if(collidingEntity instanceof Bullet) {
             reduceHealth();
         }
     }
     
+    /**
+     * Enemy2's health is reduced.
+     * When enemy2's health is 0, it
+     * is killed.
+     */
     public void reduceHealth() {
         health--;
         if(health == 0) {

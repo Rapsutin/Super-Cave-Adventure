@@ -1,12 +1,9 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package supercaveadventure.entities;
 
 /**
- *
- * @author Juho
+ * A non-PlayerCharacter entity that
+ * can move.
  */
 public interface MovableEntity {
     

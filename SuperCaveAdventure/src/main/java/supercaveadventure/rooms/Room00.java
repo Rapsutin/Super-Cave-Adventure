@@ -1,15 +1,12 @@
 
 package supercaveadventure.rooms;
 
-import java.awt.Font;
-import supercaveadventure.entities.Entity;
 import supercaveadventure.entities.Staircase;
-import supercaveadventure.graphics.ImageLoader;
-import supercaveadventure.graphics.DrawDepth;
 import supercaveadventure.logic.GameLogic;
 import java.awt.Graphics2D;
-import java.awt.image.BufferedImage;
-import java.util.ArrayList;
+import supercaveadventure.entities.ExitStaircase;
+import supercaveadventure.graphics.sprites.Room00Sprite;
+import supercaveadventure.graphics.sprites.Sprite;
 
 /**
  * The first room in the game
@@ -17,12 +14,14 @@ import java.util.ArrayList;
 public class Room00 extends Room{
     
     
-
+    private Sprite room00Sprite; 
     public Room00(GameLogic gameLogic) {
         super(gameLogic);
         playerStartXPos = 100;
         playerStartYPos = 180;
+        room00Sprite = new Room00Sprite(this);
         entities.add(new Staircase(300, 180, new Room01(gameLogic), gameLogic));
+        entities.add(new ExitStaircase(300, 280));
     }
     
     
@@ -30,11 +29,7 @@ public class Room00 extends Room{
     @Override
     public void draw(Graphics2D graphics) {
         drawGround(graphics);
-        graphics.setFont(new Font("Arial", Font.BOLD, 30));
-        
-        graphics.drawString("Use the arrow keys to move and spacebar to shoot.", 35, 60);
-        
-        graphics.drawString("Start", 360, 215);
+        room00Sprite.draw(graphics);
     }
 
 

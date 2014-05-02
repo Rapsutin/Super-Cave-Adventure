@@ -12,7 +12,7 @@ import supercaveadventure.graphics.sprites.Sprite;
 import supercaveadventure.logic.GameLogic;
 
 /**
- * An enemy prototype.
+ * An enemy that dies when a bullet hits it.
  */
 public class Enemy1 extends Entity implements MovableEntity, Mortal{
     

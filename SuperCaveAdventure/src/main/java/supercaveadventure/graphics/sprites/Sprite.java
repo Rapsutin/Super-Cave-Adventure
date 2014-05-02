@@ -16,6 +16,10 @@ public abstract class Sprite {
     public Sprite(Drawable drawableObject) {
         this.drawableObject = drawableObject;
     }
+
+    public Sprite() {
+    }
+    
     
     /**
      * Draws the sprite.

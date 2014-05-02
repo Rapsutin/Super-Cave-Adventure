@@ -1,11 +1,15 @@
 package supercaveadventure.entities;
 
-import java.awt.Color;
 import java.awt.Graphics2D;
 import supercaveadventure.graphics.DrawDepth;
 import supercaveadventure.graphics.sprites.BulletSprite;
 import supercaveadventure.graphics.sprites.Sprite;
 
+
+/**
+ * PlayerCharacter can shoot these. They inflict damage
+ * to enemies on collision.
+ */
 public class Bullet extends Entity implements Mortal, MovableEntity {
 
     private boolean alive;
