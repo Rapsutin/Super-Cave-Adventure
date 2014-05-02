@@ -32,7 +32,14 @@ public class ImageLoader {
         }
         
     }
-
+    
+    /**
+     * Creates a BufferedImage-object from
+     * the specified image file when running
+     * .jar
+     * @param imagePath
+     * @return 
+     */
     private static BufferedImage jarLoadImage(String imagePath) {
         try {
             return ImageIO.read(new File("SuperCaveAdventure/"+imagePath));

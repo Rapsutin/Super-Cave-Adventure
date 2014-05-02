@@ -1,0 +1,155 @@
+<html>
+<head>
+  
+    <style type='text/css'>
+   
+   .tests{ 
+     width : 50%;
+     float : left;
+   }
+   
+   .mutees{
+     float : right;
+     width : 50%;
+   }
+   
+   .unit {
+     padding-top : 20px;
+     clear : both;
+   }
+   
+   .coverage_bar {
+    display : inline-block;
+    height : 1.1em;
+    width: 130px;
+    background: #FAA;
+    margin: 0 5px;
+    vertical-align: middle;
+    border: 1px solid #AAA;
+    position : relative;
+   }
+   
+   .coverage_complete {
+    display : inline-block;
+    height : 100%;
+    background: #DFD;
+    float: left;
+   }
+   
+   .coverage_ledgend {
+        position : absolute;
+        height : 100%;
+        width : 100%;
+        left : 0;
+        top : 0;
+        text-align : center;
+   }
+   
+   .line, .mut {
+        vertical-align : middle;
+   }
+   
+   .coveragePercentage {
+    display: inline-block;
+    width: 3em;
+    text-align: right;
+   }
+  </style>
+  
+</head>
+<body>
+
+<h1>Pit Test Coverage Report</h1>
+
+<h3>Project Summary</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Number of Classes</th>
+            <th>Line Coverage</th>
+            <th>Mutation Coverage</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>30</td>
+            <td>71% <div class="coverage_bar"><div class="coverage_complete" style="width:71%"></div><div class="coverage_ledgend">419/587</div></div></td>
+            <td>36% <div class="coverage_bar"><div class="coverage_complete" style="width:36%"></div><div class="coverage_ledgend">118/324</div></div></td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3>Breakdown by Package</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Number of Classes</th>
+            <th>Line Coverage</th>
+            <th>Mutation Coverage</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td><a href="./supercaveadventure/index.html">supercaveadventure</a></td>
+            <td>1</td>
+            <td><div class="coveragePercentage">0% </div><div class="coverage_bar"><div class="coverage_complete" style="width:0%"></div><div class="coverage_ledgend">0/3</div></div></td>
+            <td><div class="coveragePercentage">0% </div><div class="coverage_bar"><div class="coverage_complete" style="width:0%"></div><div class="coverage_ledgend">0/1</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./supercaveadventure.entities/index.html">supercaveadventure.entities</a></td>
+            <td>8</td>
+            <td><div class="coveragePercentage">78% </div><div class="coverage_bar"><div class="coverage_complete" style="width:78%"></div><div class="coverage_ledgend">189/242</div></div></td>
+            <td><div class="coveragePercentage">44% </div><div class="coverage_bar"><div class="coverage_complete" style="width:44%"></div><div class="coverage_ledgend">65/149</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./supercaveadventure.graphics/index.html">supercaveadventure.graphics</a></td>
+            <td>6</td>
+            <td><div class="coveragePercentage">87% </div><div class="coverage_bar"><div class="coverage_complete" style="width:87%"></div><div class="coverage_ledgend">59/68</div></div></td>
+            <td><div class="coveragePercentage">24% </div><div class="coverage_bar"><div class="coverage_complete" style="width:24%"></div><div class="coverage_ledgend">7/29</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./supercaveadventure.graphics.sprites/index.html">supercaveadventure.graphics.sprites</a></td>
+            <td>6</td>
+            <td><div class="coveragePercentage">50% </div><div class="coverage_bar"><div class="coverage_complete" style="width:50%"></div><div class="coverage_ledgend">32/64</div></div></td>
+            <td><div class="coveragePercentage">0% </div><div class="coverage_bar"><div class="coverage_complete" style="width:0%"></div><div class="coverage_ledgend">0/29</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./supercaveadventure.logic/index.html">supercaveadventure.logic</a></td>
+            <td>2</td>
+            <td><div class="coveragePercentage">78% </div><div class="coverage_bar"><div class="coverage_complete" style="width:78%"></div><div class="coverage_ledgend">62/80</div></div></td>
+            <td><div class="coveragePercentage">64% </div><div class="coverage_bar"><div class="coverage_complete" style="width:64%"></div><div class="coverage_ledgend">37/58</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./supercaveadventure.rooms/index.html">supercaveadventure.rooms</a></td>
+            <td>5</td>
+            <td><div class="coveragePercentage">63% </div><div class="coverage_bar"><div class="coverage_complete" style="width:63%"></div><div class="coverage_ledgend">50/80</div></div></td>
+            <td><div class="coveragePercentage">26% </div><div class="coverage_bar"><div class="coverage_complete" style="width:26%"></div><div class="coverage_ledgend">9/35</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./supercaveadventure.userinput/index.html">supercaveadventure.userinput</a></td>
+            <td>2</td>
+            <td><div class="coveragePercentage">54% </div><div class="coverage_bar"><div class="coverage_complete" style="width:54%"></div><div class="coverage_ledgend">27/50</div></div></td>
+            <td><div class="coveragePercentage">0% </div><div class="coverage_bar"><div class="coverage_complete" style="width:0%"></div><div class="coverage_ledgend">0/23</div></div></td>
+        </tr>
+
+     </tbody>
+</table>
+<br/>
+
+
+
+<hr/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 0.30
+
+</body>
+</html>

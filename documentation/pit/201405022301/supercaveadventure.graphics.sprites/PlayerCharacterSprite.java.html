@@ -1,0 +1,1153 @@
+<html>
+<head>
+<style type='text/css'>
+html, body, div, span, p, blockquote, pre {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+
+body{
+	line-height: 1;
+	color: black;
+	background: white;
+	margin-left: 20px;
+}
+
+.src { 
+border: 1px solid #dddddd;
+padding-top: 10px;
+padding-right: 5px;
+padding-left: 5px;
+}
+
+
+.covered {background-color: #ddffdd}
+.uncovered {background-color: #ffdddd}
+.killed {background-color: #aaffaa}
+.survived {background-color: #ffaaaa}
+.uncertain {background-color: #dde7ef}
+.run_error {background-color: #dde7ef}
+.na {background-color: #eeeeee}
+.timed_out {background-color: #dde7ef}
+.non_viable {background-color: #aaffaa}
+.memory_error {background-color: #dde7ef}
+.not_started {background-color: #dde7ef; color : red}
+.no_coverage {background-color: #ffaaaa}
+
+</style>
+
+</head>
+<body>
+
+
+<h1>PlayerCharacterSprite.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_1'/>
+1
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_1'></a>
+</td>
+<td class=''><pre><span  class=''>package supercaveadventure.graphics.sprites;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_2'/>
+2
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_2'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_3'/>
+3
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_3'></a>
+</td>
+<td class=''><pre><span  class=''>import java.awt.Graphics2D;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_4'/>
+4
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_4'></a>
+</td>
+<td class=''><pre><span  class=''>import java.awt.image.BufferedImage;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_5'/>
+5
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_5'></a>
+</td>
+<td class=''><pre><span  class=''>import supercaveadventure.entities.Direction;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_6'/>
+6
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_6'></a>
+</td>
+<td class=''><pre><span  class=''>import supercaveadventure.entities.PlayerCharacter;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_7'/>
+7
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_7'></a>
+</td>
+<td class=''><pre><span  class=''>import supercaveadventure.graphics.Drawable;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_8'/>
+8
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_8'></a>
+</td>
+<td class=''><pre><span  class=''>import supercaveadventure.graphics.ImageLoader;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_9'/>
+9
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_9'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_10'/>
+10
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_10'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_11'/>
+11
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_11'></a>
+</td>
+<td class=''><pre><span  class=''>public class PlayerCharacterSprite extends Sprite{</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_12'/>
+12
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_12'></a>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_13'/>
+13
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_13'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_14'/>
+14
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_14'></a>
+</td>
+<td class=''><pre><span  class=''>    private PlayerCharacter playerCharacter;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_15'/>
+15
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_15'></a>
+</td>
+<td class=''><pre><span  class=''>    private BufferedImage upOrientationImage;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_16'/>
+16
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_16'></a>
+</td>
+<td class=''><pre><span  class=''>    private BufferedImage downOrientationImage;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_17'/>
+17
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_17'></a>
+</td>
+<td class=''><pre><span  class=''>    private BufferedImage leftOrientationImage;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_18'/>
+18
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_18'></a>
+</td>
+<td class=''><pre><span  class=''>    private BufferedImage rightOrientationImage;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_19'/>
+19
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_19'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_20'/>
+20
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_20'></a>
+</td>
+<td class=''><pre><span  class=''>    public PlayerCharacterSprite(PlayerCharacter playerCharacter) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_21'/>
+21
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_21'></a>
+</td>
+<td class='covered'><pre><span  class=''>        super((Drawable) playerCharacter);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_22'/>
+22
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_22'></a>
+</td>
+<td class='covered'><pre><span  class=''>        this.playerCharacter = playerCharacter;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_23'/>
+23
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_23'>1</a>
+</td>
+<td class='covered'><pre><span  class='survived'>        loadImages();</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_24'/>
+24
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_24'></a>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_25'/>
+25
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_25'></a>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_26'/>
+26
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_26'></a>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_27'/>
+27
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_27'></a>
+</td>
+<td class=''><pre><span  class=''>     * Loads the used images into memory.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_28'/>
+28
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_28'></a>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_29'/>
+29
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_29'></a>
+</td>
+<td class=''><pre><span  class=''>    private void loadImages() {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_30'/>
+30
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_30'></a>
+</td>
+<td class='covered'><pre><span  class=''>        upOrientationImage = ImageLoader.loadImage(&#34;resources/dudeUP.png&#34;);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_31'/>
+31
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_31'></a>
+</td>
+<td class='covered'><pre><span  class=''>        downOrientationImage = ImageLoader.loadImage(&#34;resources/dudeDOWN.png&#34;);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_32'/>
+32
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_32'></a>
+</td>
+<td class='covered'><pre><span  class=''>        rightOrientationImage = ImageLoader.loadImage(&#34;resources/dudeRIGHT.png&#34;);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_33'/>
+33
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_33'></a>
+</td>
+<td class='covered'><pre><span  class=''>        leftOrientationImage = ImageLoader.loadImage(&#34;resources/dudeLEFT.png&#34;);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_34'/>
+34
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_34'></a>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_35'/>
+35
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_35'></a>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_36'/>
+36
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_36'></a>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_37'/>
+37
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_37'></a>
+</td>
+<td class=''><pre><span  class=''>    public void draw(Graphics2D graphics) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_38'/>
+38
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_38'></a>
+</td>
+<td class='covered'><pre><span  class=''>        BufferedImage usedImage = selectOrientationImage();</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_39'/>
+39
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_39'></a>
+</td>
+<td class='covered'><pre><span  class=''>        int playerXPos = (int) playerCharacter.getX();</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_40'/>
+40
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_40'></a>
+</td>
+<td class='covered'><pre><span  class=''>        int playerYPos = (int) playerCharacter.getY();</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_41'/>
+41
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_41'></a>
+</td>
+<td class='covered'><pre><span  class=''>        graphics.drawImage(usedImage, playerXPos, playerYPos, null);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_42'/>
+42
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_42'></a>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_43'/>
+43
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_43'></a>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_44'/>
+44
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_44'></a>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_45'/>
+45
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_45'></a>
+</td>
+<td class=''><pre><span  class=''>     * Selects the correct image according to the orientation</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_46'/>
+46
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_46'></a>
+</td>
+<td class=''><pre><span  class=''>     * of PlayerCharacter</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_47'/>
+47
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_47'></a>
+</td>
+<td class=''><pre><span  class=''>     * @return The correct image.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_48'/>
+48
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_48'></a>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_49'/>
+49
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_49'></a>
+</td>
+<td class=''><pre><span  class=''>    public BufferedImage selectOrientationImage() {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_50'/>
+50
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_50'></a>
+</td>
+<td class='covered'><pre><span  class=''>        Direction playerCharacterOrientation = playerCharacter.getOrientation();</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_51'/>
+51
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_51'></a>
+</td>
+<td class=''><pre><span  class=''>        </span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_52'/>
+52
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_52'>1</a>
+</td>
+<td class='covered'><pre><span  class='survived'>        if(playerCharacterOrientation == Direction.RIGHT) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_53'/>
+53
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_53'>1</a>
+</td>
+<td class='covered'><pre><span  class='survived'>            return rightOrientationImage;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_54'/>
+54
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_54'>1</a>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        }else if(playerCharacterOrientation == Direction.LEFT) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_55'/>
+55
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_55'>1</a>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            return leftOrientationImage;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_56'/>
+56
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_56'>1</a>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        }else if(playerCharacterOrientation == Direction.UP) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_57'/>
+57
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_57'>1</a>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            return upOrientationImage;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_58'/>
+58
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_58'></a>
+</td>
+<td class=''><pre><span  class=''>        }else {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_59'/>
+59
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_59'>1</a>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            return downOrientationImage;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_60'/>
+60
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_60'></a>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_61'/>
+61
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_61'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_62'/>
+62
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_62'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_63'/>
+63
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_63'></a>
+</td>
+<td class=''><pre><span  class=''>    public BufferedImage getDownOrientationImage() {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_64'/>
+64
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_64'>1</a>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return downOrientationImage;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_65'/>
+65
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_65'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_66'/>
+66
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_66'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_67'/>
+67
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_67'></a>
+</td>
+<td class=''><pre><span  class=''>    public BufferedImage getLeftOrientationImage() {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_68'/>
+68
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_68'>1</a>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return leftOrientationImage;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_69'/>
+69
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_69'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_70'/>
+70
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_70'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_71'/>
+71
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_71'></a>
+</td>
+<td class=''><pre><span  class=''>    public BufferedImage getRightOrientationImage() {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_72'/>
+72
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_72'>1</a>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return rightOrientationImage;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_73'/>
+73
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_73'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_74'/>
+74
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_74'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_75'/>
+75
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_75'></a>
+</td>
+<td class=''><pre><span  class=''>    public BufferedImage getUpOrientationImage() {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_76'/>
+76
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_76'>1</a>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return upOrientationImage;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_77'/>
+77
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_77'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_78'/>
+78
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_78'></a>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_79'/>
+79
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_79'></a>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_23'>23</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_23'/> 
+
+<p class='SURVIVED'>removed call to supercaveadventure/graphics/sprites/PlayerCharacterSprite::loadImages : SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_52'>52</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_52'/> 
+
+<p class='SURVIVED'>negated conditional : SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_53'>53</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_53'/> 
+
+<p class='SURVIVED'>mutated return of Object value for supercaveadventure/graphics/sprites/PlayerCharacterSprite::selectOrientationImage to ( if (x != null) null else throw new RuntimeException ) : SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_54'>54</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_54'/> 
+
+<p class='NO_COVERAGE'>negated conditional : NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_55'>55</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_55'/> 
+
+<p class='NO_COVERAGE'>mutated return of Object value for supercaveadventure/graphics/sprites/PlayerCharacterSprite::selectOrientationImage to ( if (x != null) null else throw new RuntimeException ) : NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_56'>56</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_56'/> 
+
+<p class='NO_COVERAGE'>negated conditional : NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_57'>57</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_57'/> 
+
+<p class='NO_COVERAGE'>mutated return of Object value for supercaveadventure/graphics/sprites/PlayerCharacterSprite::selectOrientationImage to ( if (x != null) null else throw new RuntimeException ) : NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_59'>59</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_59'/> 
+
+<p class='NO_COVERAGE'>mutated return of Object value for supercaveadventure/graphics/sprites/PlayerCharacterSprite::selectOrientationImage to ( if (x != null) null else throw new RuntimeException ) : NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_64'>64</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_64'/> 
+
+<p class='NO_COVERAGE'>mutated return of Object value for supercaveadventure/graphics/sprites/PlayerCharacterSprite::getDownOrientationImage to ( if (x != null) null else throw new RuntimeException ) : NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_68'>68</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_68'/> 
+
+<p class='NO_COVERAGE'>mutated return of Object value for supercaveadventure/graphics/sprites/PlayerCharacterSprite::getLeftOrientationImage to ( if (x != null) null else throw new RuntimeException ) : NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_72'>72</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_72'/> 
+
+<p class='NO_COVERAGE'>mutated return of Object value for supercaveadventure/graphics/sprites/PlayerCharacterSprite::getRightOrientationImage to ( if (x != null) null else throw new RuntimeException ) : NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@69bcf8f6_76'>76</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@69bcf8f6_76'/> 
+
+<p class='NO_COVERAGE'>mutated return of Object value for supercaveadventure/graphics/sprites/PlayerCharacterSprite::getUpOrientationImage to ( if (x != null) null else throw new RuntimeException ) : NO_COVERAGE</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+<li class='mutator'>MATH_MUTATOR</li>
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>supercaveadventure.entities.BulletTest.bulletMovesUpwards(supercaveadventure.entities.BulletTest) (809 ms)</li><li>supercaveadventure.entities.PlayerCharacterTest.playerMovesLeft(supercaveadventure.entities.PlayerCharacterTest) (11 ms)</li><li>supercaveadventure.entities.BulletTest.bulletShouldBeDestroyedWhenItHitsABorder(supercaveadventure.entities.BulletTest) (339 ms)</li><li>supercaveadventure.rooms.RoomTest.allEnemiesAreDeadIsFalseWhenThereIs1AliveAnd2Dead(supercaveadventure.rooms.RoomTest) (622 ms)</li><li>supercaveadventure.entities.Enemy2Test.healthNotReducedIfHitWithNonBullet(supercaveadventure.entities.Enemy2Test) (269 ms)</li><li>supercaveadventure.logic.GameLogicTest.isCollisionDetectedIfAnEntityIsInsideAnotherEntity(supercaveadventure.logic.GameLogicTest) (374 ms)</li><li>supercaveadventure.graphics.DrawManagerTest.oneAddedEntityShouldBeInDrawables(supercaveadventure.graphics.DrawManagerTest) (601 ms)</li><li>supercaveadventure.entities.Enemy1Test.movesToSetCurrentDirection(supercaveadventure.entities.Enemy1Test) (433 ms)</li><li>supercaveadventure.entities.Enemy2Test.reducingHealthWhenBulletHits(supercaveadventure.entities.Enemy2Test) (609 ms)</li><li>supercaveadventure.logic.GameLogicTest.isCollisionDetectedIfAnEntityOfEqualSizeIsAtTheSamePoint(supercaveadventure.logic.GameLogicTest) (727 ms)</li><li>supercaveadventure.rooms.RoomTest.allEnemiesAreDeadWhenThereIs1Dead0Alive(supercaveadventure.rooms.RoomTest) (666 ms)</li><li>supercaveadventure.logic.GameLogicTest.CollisionShouldNotBeDetectedIfNothingOverlapsTest1(supercaveadventure.logic.GameLogicTest) (390 ms)</li><li>supercaveadventure.entities.Enemy1Test.playerShouldBeKilledWhenColliding(supercaveadventure.entities.Enemy1Test) (778 ms)</li><li>supercaveadventure.entities.Enemy1Test.directionsTowardPlayerAreReturnedCorrectly(supercaveadventure.entities.Enemy1Test) (647 ms)</li><li>supercaveadventure.entities.MortalTest.aliveEntitiesShouldStayAlive(supercaveadventure.entities.MortalTest) (483 ms)</li><li>supercaveadventure.entities.BulletTest.bulletMovesDownwards(supercaveadventure.entities.BulletTest) (1102 ms)</li><li>supercaveadventure.rooms.RoomTest.allEnemiesAreDeadWhenThereAreNoEnemies(supercaveadventure.rooms.RoomTest) (593 ms)</li><li>supercaveadventure.logic.GameLogicTest.isCollisionDetectedIfTopOverlaps(supercaveadventure.logic.GameLogicTest) (368 ms)</li><li>supercaveadventure.rooms.RoomTest.allEnemiesAreDeadIsFalseWhenThereIs1Alive(supercaveadventure.rooms.RoomTest) (472 ms)</li><li>supercaveadventure.entities.PlayerCharacterTest.playerMovesDown(supercaveadventure.entities.PlayerCharacterTest) (14 ms)</li><li>supercaveadventure.entities.PlayerCharacterTest.playerMovesRight(supercaveadventure.entities.PlayerCharacterTest) (11 ms)</li><li>supercaveadventure.entities.PlayerCharacterTest.playerMovesUp(supercaveadventure.entities.PlayerCharacterTest) (18 ms)</li><li>supercaveadventure.entities.StaircaseTest.aCollisionWithThePlayerShouldChangeTheRoom(supercaveadventure.entities.StaircaseTest) (512 ms)</li><li>supercaveadventure.graphics.DrawManagerTest.twoAddedEntitiesShouldBeInDrawables(supercaveadventure.graphics.DrawManagerTest) (526 ms)</li><li>supercaveadventure.entities.BulletTest.bulletNotDestroyedAfterHitWithStaircase(supercaveadventure.entities.BulletTest) (783 ms)</li><li>supercaveadventure.graphics.DrawManagerTest.removingAllEntitiesRemovesAllDrawables(supercaveadventure.graphics.DrawManagerTest) (852 ms)</li><li>supercaveadventure.entities.BulletTest.bulletMovesToLeft(supercaveadventure.entities.BulletTest) (820 ms)</li><li>supercaveadventure.logic.GameLogicTest.playerCharacterShouldBeTransportedWhileChangingRooms(supercaveadventure.logic.GameLogicTest) (549 ms)</li><li>supercaveadventure.entities.BulletTest.bulletMovesToRight(supercaveadventure.entities.BulletTest) (831 ms)</li><li>supercaveadventure.logic.GameLogicTest.CollisionShouldNotBeDetectedIfNothingOverlapsTest2(supercaveadventure.logic.GameLogicTest) (599 ms)</li><li>supercaveadventure.rooms.RoomTest.allEnemiesAreDeadWhenThereIs3Dead0Alive(supercaveadventure.rooms.RoomTest) (548 ms)</li><li>supercaveadventure.logic.GameLogicTest.isCollisionDetectedIfBottomOverlaps(supercaveadventure.logic.GameLogicTest) (477 ms)</li><li>supercaveadventure.entities.PlayerCharacterTest.playerShouldNotGoOverBorders(supercaveadventure.entities.PlayerCharacterTest) (24 ms)</li><li>supercaveadventure.logic.GameLogicTest.isCollisionDetectedIfLeftSideOverlaps(supercaveadventure.logic.GameLogicTest) (745 ms)</li><li>supercaveadventure.entities.BulletTest.bulletDestroyedAfterAHitWithANonStaircaseEntity(supercaveadventure.entities.BulletTest) (2784 ms)</li><li>supercaveadventure.graphics.DrawManagerTest.removing2EntitiesRemoves2Drawables(supercaveadventure.graphics.DrawManagerTest) (956 ms)</li><li>supercaveadventure.logic.GameLogicTest.isCollisionDetectedIfRightSideOverlaps(supercaveadventure.logic.GameLogicTest) (552 ms)</li><li>supercaveadventure.entities.Enemy1Test.anotherEnemyShouldNotBeKilledWhenColliding(supercaveadventure.entities.Enemy1Test) (464 ms)</li><li>supercaveadventure.logic.GameLogicTest.changeCurrentRoomShouldChangeTheCurrentRoom(supercaveadventure.logic.GameLogicTest) (491 ms)</li><li>supercaveadventure.graphics.DrawManagerTest.tenAddedEntitiesShouldBeInDrawables(supercaveadventure.graphics.DrawManagerTest) (386 ms)</li><li>supercaveadventure.entities.MortalTest.oneDeadEntityShouldBeRemoved(supercaveadventure.entities.MortalTest) (323 ms)</li><li>supercaveadventure.entities.Enemy2Test.reducingHealthByTwoKills(supercaveadventure.entities.Enemy2Test) (279 ms)</li><li>supercaveadventure.logic.GameLogicTest.playerCharacterShouldBeInEntitiesWhenStarting(supercaveadventure.logic.GameLogicTest) (522 ms)</li><li>supercaveadventure.entities.MortalTest.allDeadEntitiesShouldBeRemoved(supercaveadventure.entities.MortalTest) (573 ms)</li><li>supercaveadventure.logic.GameLogicTest.movableEntitiesAreMovedWhenUpdating(supercaveadventure.logic.GameLogicTest) (539 ms)</li><li>supercaveadventure.entities.Enemy2Test.reducingHealthByOneWorks(supercaveadventure.entities.Enemy2Test) (222 ms)</li><li>supercaveadventure.graphics.DrawManagerTest.removing1EntityRemoves1Drawable(supercaveadventure.graphics.DrawManagerTest) (1662 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 0.30
+
+</body>
+</html>

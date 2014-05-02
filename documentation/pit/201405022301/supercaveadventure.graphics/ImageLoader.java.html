@@ -1,0 +1,749 @@
+<html>
+<head>
+<style type='text/css'>
+html, body, div, span, p, blockquote, pre {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+
+body{
+	line-height: 1;
+	color: black;
+	background: white;
+	margin-left: 20px;
+}
+
+.src { 
+border: 1px solid #dddddd;
+padding-top: 10px;
+padding-right: 5px;
+padding-left: 5px;
+}
+
+
+.covered {background-color: #ddffdd}
+.uncovered {background-color: #ffdddd}
+.killed {background-color: #aaffaa}
+.survived {background-color: #ffaaaa}
+.uncertain {background-color: #dde7ef}
+.run_error {background-color: #dde7ef}
+.na {background-color: #eeeeee}
+.timed_out {background-color: #dde7ef}
+.non_viable {background-color: #aaffaa}
+.memory_error {background-color: #dde7ef}
+.not_started {background-color: #dde7ef; color : red}
+.no_coverage {background-color: #ffaaaa}
+
+</style>
+
+</head>
+<body>
+
+
+<h1>ImageLoader.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2675da69_1'/>
+1
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2675da69_1'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2675da69_2'/>
+2
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2675da69_2'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2675da69_3'/>
+3
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2675da69_3'></a>
+</td>
+<td class=''><pre><span  class=''>package supercaveadventure.graphics;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2675da69_4'/>
+4
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2675da69_4'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2675da69_5'/>
+5
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2675da69_5'></a>
+</td>
+<td class=''><pre><span  class=''>import java.awt.image.BufferedImage;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2675da69_6'/>
+6
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2675da69_6'></a>
+</td>
+<td class=''><pre><span  class=''>import java.io.File;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2675da69_7'/>
+7
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2675da69_7'></a>
+</td>
+<td class=''><pre><span  class=''>import java.io.IOException;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2675da69_8'/>
+8
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2675da69_8'></a>
+</td>
+<td class=''><pre><span  class=''>import javax.imageio.ImageIO;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2675da69_9'/>
+9
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2675da69_9'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2675da69_10'/>
+10
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2675da69_10'></a>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2675da69_11'/>
+11
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2675da69_11'></a>
+</td>
+<td class=''><pre><span  class=''> * This utility class makes loading sprites</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2675da69_12'/>
+12
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2675da69_12'></a>
+</td>
+<td class=''><pre><span  class=''> * slightly cleaner looking and removes </span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2675da69_13'/>
+13
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2675da69_13'></a>
+</td>
+<td class=''><pre><span  class=''> * duplication.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2675da69_14'/>
+14
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2675da69_14'></a>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2675da69_15'/>
+15
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2675da69_15'></a>
+</td>
+<td class=''><pre><span  class=''>public class ImageLoader {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2675da69_16'/>
+16
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2675da69_16'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2675da69_17'/>
+17
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2675da69_17'></a>
+</td>
+<td class='uncovered'><pre><span  class=''>    private ImageLoader() {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2675da69_18'/>
+18
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2675da69_18'></a>
+</td>
+<td class='uncovered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2675da69_19'/>
+19
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2675da69_19'></a>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2675da69_20'/>
+20
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2675da69_20'></a>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2675da69_21'/>
+21
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2675da69_21'></a>
+</td>
+<td class=''><pre><span  class=''>     * Creates a BufferedImage-object from</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2675da69_22'/>
+22
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2675da69_22'></a>
+</td>
+<td class=''><pre><span  class=''>     * the specified image file.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2675da69_23'/>
+23
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2675da69_23'></a>
+</td>
+<td class=''><pre><span  class=''>     * @param imagePath The Path to the image file.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2675da69_24'/>
+24
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2675da69_24'></a>
+</td>
+<td class=''><pre><span  class=''>     * @return The image as a BufferedImage-object.</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2675da69_25'/>
+25
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2675da69_25'></a>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2675da69_26'/>
+26
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2675da69_26'></a>
+</td>
+<td class=''><pre><span  class=''>    public static BufferedImage loadImage(String imagePath) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2675da69_27'/>
+27
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2675da69_27'></a>
+</td>
+<td class=''><pre><span  class=''>        </span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2675da69_28'/>
+28
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2675da69_28'></a>
+</td>
+<td class=''><pre><span  class=''>        try {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2675da69_29'/>
+29
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2675da69_29'>1</a>
+</td>
+<td class='covered'><pre><span  class='survived'>            return ImageIO.read(new File(imagePath));</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2675da69_30'/>
+30
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2675da69_30'></a>
+</td>
+<td class='uncovered'><pre><span  class=''>        } catch(IOException e) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2675da69_31'/>
+31
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2675da69_31'>1</a>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            return jarLoadImage(imagePath);</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2675da69_32'/>
+32
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2675da69_32'></a>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2675da69_33'/>
+33
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2675da69_33'></a>
+</td>
+<td class=''><pre><span  class=''>        </span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2675da69_34'/>
+34
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2675da69_34'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2675da69_35'/>
+35
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2675da69_35'></a>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2675da69_36'/>
+36
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2675da69_36'></a>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2675da69_37'/>
+37
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2675da69_37'></a>
+</td>
+<td class=''><pre><span  class=''>     * Creates a BufferedImage-object from</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2675da69_38'/>
+38
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2675da69_38'></a>
+</td>
+<td class=''><pre><span  class=''>     * the specified image file when running</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2675da69_39'/>
+39
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2675da69_39'></a>
+</td>
+<td class=''><pre><span  class=''>     * .jar</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2675da69_40'/>
+40
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2675da69_40'></a>
+</td>
+<td class=''><pre><span  class=''>     * @param imagePath</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2675da69_41'/>
+41
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2675da69_41'></a>
+</td>
+<td class=''><pre><span  class=''>     * @return </span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2675da69_42'/>
+42
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2675da69_42'></a>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2675da69_43'/>
+43
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2675da69_43'></a>
+</td>
+<td class=''><pre><span  class=''>    private static BufferedImage jarLoadImage(String imagePath) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2675da69_44'/>
+44
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2675da69_44'></a>
+</td>
+<td class=''><pre><span  class=''>        try {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2675da69_45'/>
+45
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2675da69_45'>1</a>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            return ImageIO.read(new File(&#34;SuperCaveAdventure/&#34;+imagePath));</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2675da69_46'/>
+46
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2675da69_46'></a>
+</td>
+<td class='uncovered'><pre><span  class=''>        } catch(IOException exception) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2675da69_47'/>
+47
+</td>
+<td class='survived'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2675da69_47'>1</a>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            return null;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2675da69_48'/>
+48
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2675da69_48'></a>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2675da69_49'/>
+49
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2675da69_49'></a>
+</td>
+<td class=''><pre><span  class=''>        </span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2675da69_50'/>
+50
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2675da69_50'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2675da69_51'/>
+51
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2675da69_51'></a>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2675da69_52'/>
+52
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2675da69_52'></a>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2675da69_29'>29</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2675da69_29'/> 
+
+<p class='SURVIVED'>mutated return of Object value for supercaveadventure/graphics/ImageLoader::loadImage to ( if (x != null) null else throw new RuntimeException ) : SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2675da69_31'>31</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2675da69_31'/> 
+
+<p class='NO_COVERAGE'>mutated return of Object value for supercaveadventure/graphics/ImageLoader::loadImage to ( if (x != null) null else throw new RuntimeException ) : NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2675da69_45'>45</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2675da69_45'/> 
+
+<p class='NO_COVERAGE'>mutated return of Object value for supercaveadventure/graphics/ImageLoader::jarLoadImage to ( if (x != null) null else throw new RuntimeException ) : NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2675da69_47'>47</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2675da69_47'/> 
+
+<p class='NO_COVERAGE'>mutated return of Object value for supercaveadventure/graphics/ImageLoader::jarLoadImage to ( if (x != null) null else throw new RuntimeException ) : NO_COVERAGE</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+<li class='mutator'>MATH_MUTATOR</li>
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>supercaveadventure.entities.BulletTest.bulletMovesUpwards(supercaveadventure.entities.BulletTest) (809 ms)</li><li>supercaveadventure.entities.PlayerCharacterTest.playerMovesLeft(supercaveadventure.entities.PlayerCharacterTest) (11 ms)</li><li>supercaveadventure.entities.BulletTest.bulletShouldBeDestroyedWhenItHitsABorder(supercaveadventure.entities.BulletTest) (339 ms)</li><li>supercaveadventure.rooms.RoomTest.allEnemiesAreDeadIsFalseWhenThereIs1AliveAnd2Dead(supercaveadventure.rooms.RoomTest) (622 ms)</li><li>supercaveadventure.logic.GameLogicTest.isCollisionDetectedIfAnEntityIsInsideAnotherEntity(supercaveadventure.logic.GameLogicTest) (374 ms)</li><li>supercaveadventure.entities.Enemy2Test.healthNotReducedIfHitWithNonBullet(supercaveadventure.entities.Enemy2Test) (269 ms)</li><li>supercaveadventure.graphics.DrawManagerTest.oneAddedEntityShouldBeInDrawables(supercaveadventure.graphics.DrawManagerTest) (601 ms)</li><li>supercaveadventure.entities.Enemy1Test.movesToSetCurrentDirection(supercaveadventure.entities.Enemy1Test) (433 ms)</li><li>supercaveadventure.entities.Enemy2Test.reducingHealthWhenBulletHits(supercaveadventure.entities.Enemy2Test) (609 ms)</li><li>supercaveadventure.logic.GameLogicTest.isCollisionDetectedIfAnEntityOfEqualSizeIsAtTheSamePoint(supercaveadventure.logic.GameLogicTest) (727 ms)</li><li>supercaveadventure.rooms.RoomTest.allEnemiesAreDeadWhenThereIs1Dead0Alive(supercaveadventure.rooms.RoomTest) (666 ms)</li><li>supercaveadventure.logic.GameLogicTest.CollisionShouldNotBeDetectedIfNothingOverlapsTest1(supercaveadventure.logic.GameLogicTest) (390 ms)</li><li>supercaveadventure.entities.Enemy1Test.playerShouldBeKilledWhenColliding(supercaveadventure.entities.Enemy1Test) (778 ms)</li><li>supercaveadventure.entities.Enemy1Test.directionsTowardPlayerAreReturnedCorrectly(supercaveadventure.entities.Enemy1Test) (647 ms)</li><li>supercaveadventure.entities.MortalTest.aliveEntitiesShouldStayAlive(supercaveadventure.entities.MortalTest) (483 ms)</li><li>supercaveadventure.entities.BulletTest.bulletMovesDownwards(supercaveadventure.entities.BulletTest) (1102 ms)</li><li>supercaveadventure.rooms.RoomTest.allEnemiesAreDeadWhenThereAreNoEnemies(supercaveadventure.rooms.RoomTest) (593 ms)</li><li>supercaveadventure.logic.GameLogicTest.isCollisionDetectedIfTopOverlaps(supercaveadventure.logic.GameLogicTest) (368 ms)</li><li>supercaveadventure.rooms.RoomTest.allEnemiesAreDeadIsFalseWhenThereIs1Alive(supercaveadventure.rooms.RoomTest) (472 ms)</li><li>supercaveadventure.entities.PlayerCharacterTest.playerMovesDown(supercaveadventure.entities.PlayerCharacterTest) (14 ms)</li><li>supercaveadventure.entities.PlayerCharacterTest.playerMovesRight(supercaveadventure.entities.PlayerCharacterTest) (11 ms)</li><li>supercaveadventure.entities.PlayerCharacterTest.playerMovesUp(supercaveadventure.entities.PlayerCharacterTest) (18 ms)</li><li>supercaveadventure.entities.StaircaseTest.aCollisionWithThePlayerShouldChangeTheRoom(supercaveadventure.entities.StaircaseTest) (512 ms)</li><li>supercaveadventure.graphics.DrawManagerTest.twoAddedEntitiesShouldBeInDrawables(supercaveadventure.graphics.DrawManagerTest) (526 ms)</li><li>supercaveadventure.entities.BulletTest.bulletNotDestroyedAfterHitWithStaircase(supercaveadventure.entities.BulletTest) (783 ms)</li><li>supercaveadventure.graphics.DrawManagerTest.removingAllEntitiesRemovesAllDrawables(supercaveadventure.graphics.DrawManagerTest) (852 ms)</li><li>supercaveadventure.entities.BulletTest.bulletMovesToLeft(supercaveadventure.entities.BulletTest) (820 ms)</li><li>supercaveadventure.logic.GameLogicTest.playerCharacterShouldBeTransportedWhileChangingRooms(supercaveadventure.logic.GameLogicTest) (549 ms)</li><li>supercaveadventure.entities.BulletTest.bulletMovesToRight(supercaveadventure.entities.BulletTest) (831 ms)</li><li>supercaveadventure.logic.GameLogicTest.CollisionShouldNotBeDetectedIfNothingOverlapsTest2(supercaveadventure.logic.GameLogicTest) (599 ms)</li><li>supercaveadventure.rooms.RoomTest.allEnemiesAreDeadWhenThereIs3Dead0Alive(supercaveadventure.rooms.RoomTest) (548 ms)</li><li>supercaveadventure.logic.GameLogicTest.isCollisionDetectedIfBottomOverlaps(supercaveadventure.logic.GameLogicTest) (477 ms)</li><li>supercaveadventure.entities.PlayerCharacterTest.playerShouldNotGoOverBorders(supercaveadventure.entities.PlayerCharacterTest) (24 ms)</li><li>supercaveadventure.logic.GameLogicTest.isCollisionDetectedIfLeftSideOverlaps(supercaveadventure.logic.GameLogicTest) (745 ms)</li><li>supercaveadventure.entities.BulletTest.bulletDestroyedAfterAHitWithANonStaircaseEntity(supercaveadventure.entities.BulletTest) (2784 ms)</li><li>supercaveadventure.graphics.DrawManagerTest.removing2EntitiesRemoves2Drawables(supercaveadventure.graphics.DrawManagerTest) (956 ms)</li><li>supercaveadventure.logic.GameLogicTest.isCollisionDetectedIfRightSideOverlaps(supercaveadventure.logic.GameLogicTest) (552 ms)</li><li>supercaveadventure.entities.Enemy1Test.anotherEnemyShouldNotBeKilledWhenColliding(supercaveadventure.entities.Enemy1Test) (464 ms)</li><li>supercaveadventure.logic.GameLogicTest.changeCurrentRoomShouldChangeTheCurrentRoom(supercaveadventure.logic.GameLogicTest) (491 ms)</li><li>supercaveadventure.graphics.DrawManagerTest.tenAddedEntitiesShouldBeInDrawables(supercaveadventure.graphics.DrawManagerTest) (386 ms)</li><li>supercaveadventure.entities.MortalTest.oneDeadEntityShouldBeRemoved(supercaveadventure.entities.MortalTest) (323 ms)</li><li>supercaveadventure.entities.Enemy2Test.reducingHealthByTwoKills(supercaveadventure.entities.Enemy2Test) (279 ms)</li><li>supercaveadventure.logic.GameLogicTest.playerCharacterShouldBeInEntitiesWhenStarting(supercaveadventure.logic.GameLogicTest) (522 ms)</li><li>supercaveadventure.graphics.DrawManagerTest.removing1EntityRemoves1Drawable(supercaveadventure.graphics.DrawManagerTest) (1662 ms)</li><li>supercaveadventure.entities.MortalTest.allDeadEntitiesShouldBeRemoved(supercaveadventure.entities.MortalTest) (573 ms)</li><li>supercaveadventure.entities.Enemy2Test.reducingHealthByOneWorks(supercaveadventure.entities.Enemy2Test) (222 ms)</li><li>supercaveadventure.logic.GameLogicTest.movableEntitiesAreMovedWhenUpdating(supercaveadventure.logic.GameLogicTest) (539 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 0.30
+
+</body>
+</html>
