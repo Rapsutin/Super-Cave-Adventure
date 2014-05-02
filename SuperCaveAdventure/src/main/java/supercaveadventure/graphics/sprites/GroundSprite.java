@@ -13,7 +13,7 @@ public class GroundSprite extends Sprite{
 
     public GroundSprite() {
         super();
-        ground = ImageLoader.loadImage("../resources/ground.png");
+        ground = ImageLoader.loadImage("resources/ground.png");
     }
     
     

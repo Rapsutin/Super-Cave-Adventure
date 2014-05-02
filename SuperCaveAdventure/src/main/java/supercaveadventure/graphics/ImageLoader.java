@@ -4,6 +4,7 @@ package supercaveadventure.graphics;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 import javax.imageio.ImageIO;
 
 /**
@@ -23,11 +24,21 @@ public class ImageLoader {
      * @return The image as a BufferedImage-object.
      */
     public static BufferedImage loadImage(String imagePath) {
+        
         try {
             return ImageIO.read(new File(imagePath));
-        } catch(Exception e) {
+        } catch(IOException e) {
+            return jarLoadImage(imagePath);
         }
-        return null;
+        
+    }
+
+    private static BufferedImage jarLoadImage(String imagePath) {
+        try {
+            return ImageIO.read(new File("SuperCaveAdventure/"+imagePath));
+        } catch(IOException exception) {
+            return null;
+        }
         
     }
     
