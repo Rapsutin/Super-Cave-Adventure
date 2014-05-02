@@ -9,6 +9,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import supercaveadventure.logic.GameLogic;
 import supercaveadventure.logic.GameLoop;
+import supercaveadventure.rooms.Room00;
 import supercaveadventure.testobjects.TestRoom;
 
 /**
@@ -30,7 +31,7 @@ public class Enemy1Test {
         PlayerCharacter playerCharacter = gameLogic.getPlayerCharacter();
         Enemy1 enemy1 = new Enemy1(100, 100, gameLogic);
         enemy1.onOverlap(playerCharacter);
-        assertTrue(!playerCharacter.isAlive());
+        assertTrue(gameLogic.getCurrentRoom() instanceof Room00);
     }
     
     @Test

@@ -9,5 +9,10 @@ package supercaveadventure.entities;
  * @author Juho
  */
 public interface MovableEntity {
+    
+    /**
+     * Moves the entity.
+     * @param delta Time-dependent scalar.
+     */
     public void move(double delta);
 }

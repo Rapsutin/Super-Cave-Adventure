@@ -6,17 +6,14 @@ package supercaveadventure.logic;
 
 import supercaveadventure.entities.Entity;
 import supercaveadventure.entities.PlayerCharacter;
-import supercaveadventure.logic.GameLogic;
-import supercaveadventure.logic.GameLoop;
-import supercaveadventure.rooms.Room;
 import supercaveadventure.testobjects.TestEntity;
 import supercaveadventure.testobjects.TestRoom;
 import java.util.ArrayList;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import supercaveadventure.entities.Enemy1;
+import supercaveadventure.rooms.Room;
 
 /**
  *

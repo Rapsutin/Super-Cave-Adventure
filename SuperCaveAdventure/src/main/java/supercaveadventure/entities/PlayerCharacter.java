@@ -4,6 +4,8 @@ import supercaveadventure.graphics.DrawDepth;
 import supercaveadventure.logic.GameLogic;
 import java.awt.Graphics2D;
 import supercaveadventure.graphics.sprites.PlayerCharacterSprite;
+import supercaveadventure.graphics.sprites.Sprite;
+import supercaveadventure.rooms.Room00;
 
 /**
  * The character controlled by the player.
@@ -14,7 +16,7 @@ public class PlayerCharacter extends Entity implements Mortal{
     private double speed;
     private boolean alive;
     private Direction orientation;
-    private PlayerCharacterSprite sprite;
+    private Sprite sprite;
     private GameLogic gameLogic;
     
 
@@ -45,6 +47,12 @@ public class PlayerCharacter extends Entity implements Mortal{
        
     }
     
+    /**
+     * Changes the orientation of PlayerCharacter
+     * according to its movement
+     * @param dx Change in x-coordinate.
+     * @param dy Change in y-coordinate.
+     */
     private void changeOrientation(double dx, double dy) {
         if(dx > 0) {
             orientation = Direction.RIGHT;
@@ -57,14 +65,14 @@ public class PlayerCharacter extends Entity implements Mortal{
         }
     }
     
+    /**
+     * Makes PlayerCharacter shoot if it is not
+     * reloading the weapon.
+     */
     public void shoot() {
-        double shotAttemptTime = System.currentTimeMillis();
-        
-        if(shotAttemptTime - lastShotTime < 750) {
+        if (isReloading()) {
             return;
         }
-        
-        lastShotTime = shotAttemptTime;
         
         if(orientation == Direction.RIGHT) {
             
@@ -85,6 +93,19 @@ public class PlayerCharacter extends Entity implements Mortal{
         }
         
         
+    }
+    
+    /**
+     * Checks if PlayerCharacter is reloading its weapon.
+     * @return 
+     */
+    private boolean isReloading() {
+        double shotAttemptTime = System.currentTimeMillis();
+        if (shotAttemptTime - lastShotTime < 750) {
+            return true;
+        }
+        lastShotTime = shotAttemptTime;
+        return false;
     }
     
     public double getRotatedVectorX(double vectorX, double vectorY, double rotation) {
@@ -135,7 +156,9 @@ public class PlayerCharacter extends Entity implements Mortal{
 
     @Override
     public void setAlive(boolean isAlive) {
-        alive = isAlive;
+        if(!isAlive) {
+            gameLogic.changeCurrentRoom(new Room00(gameLogic));
+        }
     }
     
 

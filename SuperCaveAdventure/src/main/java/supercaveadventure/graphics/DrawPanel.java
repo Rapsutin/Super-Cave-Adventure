@@ -16,8 +16,8 @@ public class DrawPanel extends JPanel{
     private ArrayList<Drawable> drawables;
     
     
-    public DrawPanel(ArrayList<Drawable> drawables) {
-        this.drawables = drawables;
+    public DrawPanel() {
+        drawables = new ArrayList<>();
         super.setBackground(Color.darkGray);
         
     }

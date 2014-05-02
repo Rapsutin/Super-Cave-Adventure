@@ -20,8 +20,15 @@ public abstract class Entity implements Drawable{
         height = 0;
     }
     
+    /**
+     * Decides what to do when colliding with another entity.
+     * @param collidingEntity 
+     */
     public abstract void onOverlap(Entity collidingEntity);
     
+    /**
+     * Keeps the entity inside the game borders.
+     */
     protected void checkBorders() {
         int maximumX = 790;
         int maximumY = 438;
@@ -42,6 +49,10 @@ public abstract class Entity implements Drawable{
         }
     }
     
+    /**
+     * Tells if the entity is over the border.
+     * @return True, if over the border, otherwise false.
+     */
     public boolean overlapsBorder() {
         int maximumX = 790;
         int maximumY = 438;

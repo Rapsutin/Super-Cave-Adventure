@@ -19,28 +19,29 @@ public class DrawManager {
     private ArrayList<Drawable> drawables;
 
     public DrawManager() {
-        drawables = new ArrayList<>();
-        drawPanel = new DrawPanel(drawables);
-        gameFrame = new GameFrame(drawPanel);
+        
+        
+        gameFrame = new GameFrame();
+        drawPanel = gameFrame.getDrawPanel();
+        drawables = drawPanel.getDrawables();
+        
         SwingUtilities.invokeLater(gameFrame);
+        
     }
+    
+    
 
     /**
      * Updates the list of things to draw.
      */
     public void updateDrawables(ArrayList<Entity> entities, Room currentRoom) {
         drawables = new ArrayList<>(entities.size());
-        addEntitiesToDrawables(entities);
+        drawables.addAll(entities);
         drawables.add(currentRoom);
         Collections.sort(drawables, new DrawDepthComparator());
         drawPanel.setDrawables(drawables);
     }
     
-    private void addEntitiesToDrawables(ArrayList<Entity> entities) {
-        for (Entity e : entities) {
-            drawables.add(e);
-        }
-    }
     
     public void updateDrawPanel() {
         drawPanel.repaint();

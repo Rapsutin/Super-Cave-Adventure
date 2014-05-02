@@ -27,11 +27,18 @@ public class GameLogic {
         playerMover = new PlayerMover(playerCharacter, keyListenerLocation.getPlayerKeyListener());
     }
     
+    /**
+     * Sets the initial game up.
+     */
     private void initializeGame() {
         playerCharacter = new PlayerCharacter(0, 0, this);
         changeCurrentRoom(new Room00(this));
     }
-
+    
+    /**
+     * Updates all the entities currently in game.
+     * @param delta Time-dependent scalar.
+     */
     public void updateGame(double delta) {
         playerMover.controlPlayerCharacter(delta);
         moveAllMovableEntities(delta);
@@ -40,28 +47,39 @@ public class GameLogic {
         currentRoom.checkWinCondition();
     }
     
+    /**
+     * Notifies entities of overlaps.
+     */
     public void checkForOverlaps() {
         for(Entity entity1: entities) {
             for(Entity entity2: entities) {
                 if(doEntitiesOverlap(entity1, entity2) && entity1 != entity2) {
-                    entity1.onOverlap(entity2);
                     entity2.onOverlap(entity1);
                 }
             }
         }
     }
     
+    /**
+     * Removes all dead entities.
+     */
     public void removeDeadEntities() {
         ArrayList<Mortal> deadEntities = new ArrayList<>();
         for(Entity e : entities) {
-            removeFromEntitiesIfDead(e, deadEntities);
+            addToDeadEntitiesListIfDead(e, deadEntities);
         }
         for(Mortal m : deadEntities) {
             removeEntity((Entity) m);
         }
         
     }
-    private void removeFromEntitiesIfDead(Entity e, ArrayList<Mortal> deadEntities) {
+    
+    /**
+     * Adds the entity to deadEntities if it is dead.
+     * @param e 
+     * @param deadEntities 
+     */
+    private void addToDeadEntitiesListIfDead(Entity e, ArrayList<Mortal> deadEntities) {
         if(e instanceof Mortal) {
             Mortal mortalEntity = (Mortal)e;
             if(!mortalEntity.isAlive()) {
@@ -102,7 +120,12 @@ public class GameLogic {
         }
         return true;
     }
-
+    
+    /**
+     * Changes the current room and sets up
+     * everything.
+     * @param newRoom The room to be loaded.
+     */
     public void changeCurrentRoom(Room newRoom) {
         currentRoom = newRoom;
         entities = currentRoom.getEntities();

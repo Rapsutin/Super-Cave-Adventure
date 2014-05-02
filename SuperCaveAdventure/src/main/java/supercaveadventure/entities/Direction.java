@@ -41,6 +41,11 @@ public enum Direction {
    
     }
     
+    /**
+     * Converts the direction to radians. 0 = RIGHT.
+     * @param direction The direction to be converted.
+     * @return Radians.
+     */
     public static double getDirectionInRadians(Direction direction) {
         if(direction == RIGHT) {
             return 0;

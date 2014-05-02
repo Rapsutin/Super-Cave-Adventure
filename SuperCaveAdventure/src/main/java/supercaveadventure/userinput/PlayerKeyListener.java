@@ -34,6 +34,7 @@ public class PlayerKeyListener implements KeyListener{
         updateKey(e, false);
     }
     
+    
     private void updateKey(KeyEvent e, boolean wasItPressed) {
         Integer keyCode = e.getKeyCode();
         switch(keyCode) {

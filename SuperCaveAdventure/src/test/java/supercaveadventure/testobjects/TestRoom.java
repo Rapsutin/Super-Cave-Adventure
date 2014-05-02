@@ -3,10 +3,10 @@ package supercaveadventure.testobjects;
 
 import supercaveadventure.entities.Entity;
 import supercaveadventure.graphics.DrawDepth;
-import supercaveadventure.rooms.Room;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
 import supercaveadventure.logic.GameLogic;
+import supercaveadventure.rooms.Room;
 
 /**
  *
@@ -36,6 +36,5 @@ public class TestRoom extends Room{
 
     @Override
     public void checkWinCondition() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

@@ -16,8 +16,9 @@ public class GameFrame implements Runnable {
     private DrawPanel drawPanel;
     private PlayerKeyListener playerKeyListener;
 
-    public GameFrame(DrawPanel drawPanel) {
-        this.drawPanel = drawPanel;
+    public GameFrame() {
+        
+        this.drawPanel = new DrawPanel();
         this.drawPanel.setDoubleBuffered(true);
         playerKeyListener = new PlayerKeyListener();
     }

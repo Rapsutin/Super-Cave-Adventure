@@ -4,14 +4,12 @@
  */
 package supercaveadventure.entities;
 
-import supercaveadventure.entities.Staircase;
-import supercaveadventure.entities.PlayerCharacter;
 import supercaveadventure.logic.GameLogic;
 import supercaveadventure.logic.GameLoop;
-import supercaveadventure.rooms.Room;
 import supercaveadventure.testobjects.TestRoom;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import supercaveadventure.rooms.Room;
 
 /**
  *

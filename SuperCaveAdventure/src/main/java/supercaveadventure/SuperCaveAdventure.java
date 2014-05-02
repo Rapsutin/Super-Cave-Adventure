@@ -1,6 +1,8 @@
 package supercaveadventure;
 
 
+import javax.swing.SwingUtilities;
+import supercaveadventure.graphics.GameFrame;
 import supercaveadventure.logic.GameLoop;
 
 
@@ -9,6 +11,7 @@ import supercaveadventure.logic.GameLoop;
  */
 public class SuperCaveAdventure {
     public static void main( String[] args ) {
+ 
         new GameLoop().run();
     }
 }

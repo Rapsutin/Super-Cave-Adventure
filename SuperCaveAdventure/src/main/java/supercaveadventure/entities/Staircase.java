@@ -1,14 +1,12 @@
 
 package supercaveadventure.entities;
 
-import supercaveadventure.entities.Entity;
-import supercaveadventure.entities.PlayerCharacter;
-import supercaveadventure.graphics.ImageLoader;
 import supercaveadventure.graphics.DrawDepth;
 import supercaveadventure.logic.GameLogic;
 import supercaveadventure.rooms.Room;
 import java.awt.Graphics2D;
-import java.awt.image.BufferedImage;
+import supercaveadventure.graphics.sprites.Sprite;
+import supercaveadventure.graphics.sprites.StaircaseSprite;
 
 /**
  * When the PlayerCharacter walks into this, 
@@ -20,7 +18,7 @@ public class Staircase extends Entity {
    
     private Room nextRoom;
     private GameLogic gameLogic;
-    private BufferedImage img;
+    private Sprite staircaseSprite;
     
 
     public Staircase(int x, int y, Room nextRoom, GameLogic gameLogic) {
@@ -29,12 +27,11 @@ public class Staircase extends Entity {
         width = 50;
         this.nextRoom = nextRoom;
         this.gameLogic = gameLogic;
-        img = ImageLoader.loadImage("resources/staircaseDoor.png");
+        staircaseSprite = new StaircaseSprite(this);
     }
 
     @Override
     public void onOverlap(Entity collidingEntity) {
-        
         if(collidingEntity.getClass() == PlayerCharacter.class) {
             gameLogic.changeCurrentRoom(nextRoom);
         }
@@ -42,7 +39,7 @@ public class Staircase extends Entity {
 
     @Override
     public void draw(Graphics2D graphics) {
-        graphics.drawImage(img, (int)x, (int)y, null);
+        staircaseSprite.draw(graphics);
     }
 
     @Override

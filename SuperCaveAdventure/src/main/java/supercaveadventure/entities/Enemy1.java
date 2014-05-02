@@ -7,6 +7,8 @@ import java.awt.Graphics2D;
 import java.util.ArrayList;
 import java.util.Random;
 import supercaveadventure.graphics.DrawDepth;
+import supercaveadventure.graphics.sprites.Enemy1Sprite;
+import supercaveadventure.graphics.sprites.Sprite;
 import supercaveadventure.logic.GameLogic;
 
 /**
@@ -17,6 +19,7 @@ public class Enemy1 extends Entity implements MovableEntity, Mortal{
     private boolean alive;
     private Direction currentDirection;
     private PlayerCharacter playerCharacter;
+    private Sprite enemy1Sprite;
 
     public Enemy1(double x, double y, GameLogic gameLogic) {
         super(x, y);
@@ -25,23 +28,32 @@ public class Enemy1 extends Entity implements MovableEntity, Mortal{
         currentDirection = Direction.getRandomDirection();
         alive = true;
         playerCharacter = gameLogic.getPlayerCharacter();
+        enemy1Sprite = new Enemy1Sprite(this);
     }
 
     @Override
     public void onOverlap(Entity collidingEntity) {
-        if(collidingEntity instanceof PlayerCharacter) {
-            Mortal killedPlayer = (Mortal) collidingEntity;
-            killedPlayer.setAlive(false);
-        }
+        killCollidingPlayerCharacter(collidingEntity);
+        dieIfBulletHits(collidingEntity);
+    }
+
+    protected void dieIfBulletHits(Entity collidingEntity) {
         if(collidingEntity instanceof Bullet) {
             setAlive(false);
         }
     }
 
+    protected void killCollidingPlayerCharacter(Entity collidingEntity) {
+        if(collidingEntity instanceof PlayerCharacter) {
+            Mortal killedPlayer = (Mortal) collidingEntity;
+            killedPlayer.setAlive(false);
+        }
+    }
+    
+
     @Override
     public void draw(Graphics2D graphics) {
-        graphics.setPaint(Color.BLACK);
-        graphics.fillRect((int)x, (int)y, width, height);
+        enemy1Sprite.draw(graphics);
     }
 
     @Override
@@ -65,13 +77,24 @@ public class Enemy1 extends Entity implements MovableEntity, Mortal{
             setCurrentDirection(getRandomDirectionTowardsPlayer());
             moveToCurrentDirection(delta);
         } 
-        
-        if(overlapsBorder()) {
-            setCurrentDirection(Direction.getRandomDirection());
-        }
+        changeDirectionIfBorderIsHit();        
         checkBorders();
     }
     
+    /**
+     * Chooses a random orientation when a border is hit.
+     */
+    private void changeDirectionIfBorderIsHit() {
+        if(overlapsBorder()) {
+            setCurrentDirection(Direction.getRandomDirection());
+        }
+    }
+    
+    /**
+     * Calculates a random direction that gets
+     * enemy1 closer to the player.
+     * @return A direction towards the player.
+     */
     private Direction getRandomDirectionTowardsPlayer() {
         ArrayList<Direction> possibleDirections = getAllDirectionsTowardsPlayer();
         return getRandomDirectionFromList(possibleDirections);
@@ -97,6 +120,12 @@ public class Enemy1 extends Entity implements MovableEntity, Mortal{
         }
         return possibleDirections;
     }
+    
+    /**
+     * Returns a random direction from the given list.
+     * @param directions List of directions.
+     * @return A random direction.
+     */
     private Direction getRandomDirectionFromList(ArrayList<Direction> directions) {
         Random r = new Random();
         int index = r.nextInt(directions.size());

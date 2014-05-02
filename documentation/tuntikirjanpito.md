@@ -64,4 +64,19 @@ ampumiseen (ampuminen toteutetaan ensi viikolla).
 (7h)
 Tein sekvenssikaavion (0,5h)
 
+11.4-28.4
+Unohdin tuntikirjanpidon. Joka tapauksessa aloin siirtämään peliobjektien piirtämistä niiden omista luokista pois. Ampuminen toimii nyt myös ja huoneille on määritelty "win condition".
+
+29.4
+JavaDoc-päivitystä. (4h)
+
+30.4
+Asiat piirretään nyt omissa luokissaan. Lisäsin ohjeita aloituskenttään. (2h)
+
+1.5
+Tein uuden vihollisen ja kaksi uutta huonetta. (4h)
+
+2.5
+Testejä ja muuta säätöä. JavaDoc. Palautus. (7h)
+
 

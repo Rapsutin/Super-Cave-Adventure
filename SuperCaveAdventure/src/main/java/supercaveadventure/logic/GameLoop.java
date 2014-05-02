@@ -51,6 +51,10 @@ public class GameLoop {
         }
     }
     
+    /**
+     * Makes the GameLoop wait if it is going too fast.
+     * @param lastLoopTime The last time everything was updated.
+     */
     private void wait(long lastLoopTime, final long OPTIMAL_TIME) {
         try {
             Thread.sleep( (lastLoopTime - System.nanoTime() + OPTIMAL_TIME)/1000000);

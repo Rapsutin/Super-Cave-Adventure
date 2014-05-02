@@ -29,7 +29,7 @@ public class PlayerMover {
         movePlayerCharacter(delta);
         makePlayerCharacterShoot();
     }
-
+    
     public void movePlayerCharacter(double delta) {
         double movementDistance = delta * playerCharacter.getSpeed();
         

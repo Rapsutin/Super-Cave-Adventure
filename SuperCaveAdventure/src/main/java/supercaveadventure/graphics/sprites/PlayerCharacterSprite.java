@@ -23,6 +23,9 @@ public class PlayerCharacterSprite extends Sprite{
         loadImages();
     }
     
+    /**
+     * Loads the used images into memory.
+     */
     private void loadImages() {
         upOrientationImage = ImageLoader.loadImage("resources/dudeUP.png");
         downOrientationImage = ImageLoader.loadImage("resources/dudeDOWN.png");
@@ -38,6 +41,11 @@ public class PlayerCharacterSprite extends Sprite{
         graphics.drawImage(usedImage, playerXPos, playerYPos, null);
     }
     
+    /**
+     * Selects the correct image according to the orientation
+     * of PlayerCharacter
+     * @return The correct image.
+     */
     public BufferedImage selectOrientationImage() {
         Direction playerCharacterOrientation = playerCharacter.getOrientation();
         
