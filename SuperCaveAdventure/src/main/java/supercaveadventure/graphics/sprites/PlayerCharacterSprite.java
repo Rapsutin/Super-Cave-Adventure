@@ -27,10 +27,10 @@ public class PlayerCharacterSprite extends Sprite{
      * Loads the used images into memory.
      */
     private void loadImages() {
-        upOrientationImage = ImageLoader.loadImage("resources/dudeUP.png");
-        downOrientationImage = ImageLoader.loadImage("resources/dudeDOWN.png");
-        rightOrientationImage = ImageLoader.loadImage("resources/dudeRIGHT.png");
-        leftOrientationImage = ImageLoader.loadImage("resources/dudeLEFT.png");
+        upOrientationImage = ImageLoader.loadImage("../resources/dudeUP.png");
+        downOrientationImage = ImageLoader.loadImage("../resources/dudeDOWN.png");
+        rightOrientationImage = ImageLoader.loadImage("../resources/dudeRIGHT.png");
+        leftOrientationImage = ImageLoader.loadImage("../resources/dudeLEFT.png");
     }
     
     @Override

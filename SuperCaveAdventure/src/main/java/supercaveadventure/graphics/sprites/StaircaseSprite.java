@@ -16,7 +16,7 @@ public class StaircaseSprite extends Sprite{
     public StaircaseSprite(Staircase staircase) {
         super(staircase);
         this.staircase = staircase;
-        staircaseImage = ImageLoader.loadImage("resources/staircaseDoor.png");
+        staircaseImage = ImageLoader.loadImage("../resources/staircaseDoor.png");
     }
     
     
